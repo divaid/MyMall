@@ -1,0 +1,384 @@
+{
+  "error": 0,
+  "errorMsg": "成功！",
+  "data": [
+    {
+      "id": "1",
+      "title": "木门",
+      "explain": "木门，即木制的门。按照材质、工艺及用途可以分为很多种类。广泛适用于民、商用建筑及住宅。",
+      "icon": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/1013\/a5220fc1bd452722b7e20c321fd749a7.png",
+      "num": 6,
+      "child": [
+        {
+          "id": "11",
+          "title": "原木门",
+          "explain": "原木门是所有木门种类里最名贵的一种，各个国家进口橡胶木、卡斯拉、樱桃木等等珍贵原木经过卓越的木工与表面处理，让原木门体现出自然的木纹纹理，内外材质一致有很好隔音防腐保温性",
+          "image": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/1129\/1331804653cc75727159cffc20faade6.png",
+          "icon": "http:\/\/main.tmt58.com\/resource\/upload\/2016\/0811\/1ebd1d31f5661bd437a2e6056c03ec2c.png",
+          "parent": "1",
+          "num": 68
+        },
+        {
+          "id": "78",
+          "title": "防潮木门",
+          "explain": "防潮木门是新概念木门，平台防潮木门表面竹木纤维加实木高温高压成型的新型材料，摒弃传统油漆工艺，使得木门具有防潮性、环保性和隔音保温性等优点。",
+          "image": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/1129\/5506c645ff249b6bd0cb41b85256b244.png",
+          "icon": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/0406\/fc596a15ef7e92e442db31850b638982.png",
+          "parent": "1",
+          "num": 35
+        },
+        {
+          "id": "10",
+          "title": "实木复合门",
+          "explain": "实木复合分为表面贴纸、贴板和贴实木木皮做为表面材质，采用实木指接（杉木）材料做为门芯，经过油漆工艺三底二面的反复打磨喷漆加工使得实木复合门具有实木门的天然纹理，木门中属于中高档次产品",
+          "image": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/1129\/e6acb4184507c78b7a6beb207b705e7b.png",
+          "icon": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/1123\/a03ba74acbd100c5c119d0286d0a85a6.png",
+          "parent": "1",
+          "num": 251
+        },
+        {
+          "id": "44",
+          "title": "生态木门",
+          "explain": "生态木门又称强化门，门面、门套等采用三聚氰胺饰面板，面板阻燃性强、稳定性强、无油漆工艺环保；根据产品价位不同内填充采用蜂窝纸、杉木方、桥洞板等；木门中性价比高已经慢慢占领了免漆木门和钢木门大部分市场",
+          "image": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/1129\/a8b201f2701e261025cd9ad1d5dbbaed.png",
+          "icon": "http:\/\/main.tmt58.com\/resource\/upload\/2016\/0811\/64b659fdf54adf6b265b5e4f98575607.png",
+          "parent": "1",
+          "num": 302
+        },
+        {
+          "id": "45",
+          "title": "钢木门",
+          "explain": "钢木门由钢板、杉木框架和内部杉木蜂窝纸等填充；钢板通过压花和表面转印油漆处理，款式颜色多种多样，生产周期短，在木门类里面价位较低的一种",
+          "image": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/1129\/1be859a4340c18c1ce6f53ee478cf7c3.png",
+          "icon": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/1123\/02919b85c7f81c03def9518dd6c66a09.png",
+          "parent": "1",
+          "num": 81
+        },
+        {
+          "id": "56",
+          "title": "免漆门",
+          "explain": "市场上绝大多数免漆门由表面PVC贴中纤密度板经过真空吸塑工艺组成门面门套，生产周期及短，蜂窝纸木方填充组成；价格是木门类里面较低的一种，目前也有其他材质类型的中高端免漆门在市场上出现",
+          "image": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/1129\/faff1cfb9b2c7ffb4a5be7b15236e6b0.png",
+          "icon": "http:\/\/main.tmt58.com\/resource\/upload\/2016\/0811\/647a060753019277bd2c45dbd049646c.jpg",
+          "parent": "1",
+          "num": 28
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "title": "防盗门",
+      "explain": "防盗门的全称为“防盗安全门”。按防盗安全级别共分4级，分别为甲、乙、丙、丁四级从高到低，依次递减。",
+      "icon": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/1013\/7ff85391c929ff1a7dc71f43346b374b.png",
+      "num": 6,
+      "child": [
+        {
+          "id": "110",
+          "title": "指纹锁防盗门",
+          "explain": "指纹锁防盗门主要针对安装了指纹锁的防盗门为主，产品有三合一的钥匙指纹密码、四合一多磁卡、五合一多APP密码多种类型指纹锁。",
+          "image": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/1129\/19531ae266af5119e5855151d585c015.png",
+          "icon": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/1114\/e7a3ebccd052a7b1877e4b892d27c9ed.png",
+          "parent": "5",
+          "num": 30
+        },
+        {
+          "id": "112",
+          "title": "自动锁防盗门",
+          "explain": "自动锁防盗门锁体使用自动锁体方便老人小孩使用，关闭门扇和打开门扇会自动把侧锁点关闭与打开，不用特意反锁钥匙。",
+          "image": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/1129\/4dbeb9d4deda7962afa2cf2a4727319a.png",
+          "icon": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/1114\/00e3a3a1bfbff7683f01be9337fb3278.png",
+          "parent": "5",
+          "num": 29
+        },
+        {
+          "id": "109",
+          "title": "甲级防盗门",
+          "explain": "甲级防盗门国家最新标准《防盗安全门通用技术条件》中门扇前后板厚度为1.0\/1.0mm，门框为2.0mm，度锁闭点数12个，防破坏开启时间≥30min。",
+          "image": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/1129\/a5f03c8b0d2b3babae1ce2f7fe76ac26.png",
+          "icon": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/1114\/977c0439106c248cac059efefae8d700.png",
+          "parent": "5",
+          "num": 159
+        },
+        {
+          "id": "119",
+          "title": "乙级防盗门",
+          "explain": "乙级防盗门国家最新标准《防盗安全门通用技术条件》中门扇前后板厚度为1.0\/1.0mm，门框为2.0mm，度锁闭点数10个，防破坏开启时间≥15min。",
+          "image": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/1129\/7266bd1f8d0486fa46971e551bcc7b62.png",
+          "icon": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/1012\/bf39dcbb7f694e324e19c947b5e12ca1.png",
+          "parent": "5",
+          "num": 2
+        },
+        {
+          "id": "111",
+          "title": "丁级防盗门",
+          "explain": "丁级防盗门国家最新标准《防盗安全门通用技术条件》中门扇前后板厚度为0.8\/0.6mm，门框为1.5mm，度锁闭点数6个，防破坏开启时间≥6min。",
+          "image": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/1129\/38a1f6e6578a7cad0bbf65f620173b4e.png",
+          "icon": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/1114\/ce2c9fe4b116bc194589b3e4128fdcbc.png",
+          "parent": "5",
+          "num": 21
+        },
+        {
+          "id": "113",
+          "title": "进户门",
+          "explain": "进户门低于防盗门标准，防盗等级达不到最低标准丁级，板材厚度达不到门扇0.8\/0.6mm或门框达不到1.5mm的统称为进户门。",
+          "image": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/1129\/0c1ca85e8f037be586a0ec362fe9a42c.png",
+          "icon": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/1114\/cd669459472dd95de7502aabf2dddeea.png",
+          "parent": "5",
+          "num": 12
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "title": "非标门",
+      "explain": "非标准尺寸的门就是非标门！门是非标门还是标准门与材料无关，只与尺寸有关。没有固定的尺寸和样式。",
+      "icon": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/1013\/1f541255df5163dfc0294cb25e85e986.png",
+      "num": 4,
+      "child": [
+        {
+          "id": "50",
+          "title": "钢质非标门",
+          "explain": "钢质非标门为定制产品，材料分钢板、镀锌板、锌合金板为主，根据用户需要可以根据尺寸调整气窗门头罗马柱等各种配件的个性选择，厂家之间产品板材厚度、填充、铰链、门扇厚度、工艺、配件等也各有差异。",
+          "image": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/1129\/b14a41b0758b8b44e6533604c1af6464.png",
+          "icon": "http:\/\/main.tmt58.com\/resource\/upload\/2016\/0811\/cc4257b0e17e40fa4809423358655899.png",
+          "parent": "8",
+          "num": 133
+        },
+        {
+          "id": "79",
+          "title": "庭院门",
+          "explain": "庭院门中高端产品主要材质为铝合金和铝合金铸铝花件，经过表面处理可以做成描金、仿古、古铜等效果，成为户外绝佳的第一道别墅大门；雕刻细腻、产品大气更加凸显了高端用户的品质生活。",
+          "image": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/1129\/04fd42bf29b137aca07f686f3fac5077.png",
+          "icon": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/0427\/8eae1e272491f5850098a644a325c5b5.png",
+          "parent": "8",
+          "num": 34
+        },
+        {
+          "id": "85",
+          "title": "铸铝防爆门",
+          "explain": "铸铝防爆门户外部分表面采用纯铝锭浇注成型整板铸件面板，厚度大于10mm；不锈钢和龙骨架构成门芯，单个门扇至少就达到100KG以上，室内面饰板大部分采用实木门板，契合了室内的整体装修风格。",
+          "image": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/1129\/f4dbad73a6dff2940fce314473ce61eb.png",
+          "icon": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/0617\/82077173a7ba96f81f7aaae607d006b9.jpg",
+          "parent": "8",
+          "num": 8
+        },
+        {
+          "id": "108",
+          "title": "铜铝门",
+          "explain": "铜铝门通过铝材拼接工艺而成，表面做上和铜门色一样的表面工艺；特别适合沿海地区，不生锈，不褪色，成品效果和铜门类似，价格比铜门实惠。",
+          "image": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/1129\/347c26e6deacbc298a0de376ed41ab2d.png",
+          "icon": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/0922\/4c29f8c9d80584ad6ec5fec4f56170b9.png",
+          "parent": "8",
+          "num": 7
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "title": "卫浴门移门",
+      "explain": "卫浴门是卫生间门与浴室门的总称，一般采用塑钢、铝合金、钛镁合金、玻璃制作。\n移门指门扇连接滑轮并在固定的轨道上可移动的门，即推拉门。",
+      "icon": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/1013\/0ac5027fed5b6f535ab5cb622a8d0c11.png",
+      "num": 4,
+      "child": [
+        {
+          "id": "48",
+          "title": "卫浴门",
+          "explain": "卫浴门是由铝合金拼接加上各种花型玻璃工艺组成的防潮性强的室内门，根据铝合金的颜色型材宽、厚度和玻璃花型影响价格。",
+          "image": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/1129\/54a9165bdcadf93152257b94c7fafb21.png",
+          "icon": "http:\/\/main.tmt58.com\/resource\/upload\/2016\/0811\/9a254cf1abc2bacdf2a405f9e4204d90.png",
+          "parent": "7",
+          "num": 92
+        },
+        {
+          "id": "81",
+          "title": "衣柜移门",
+          "explain": "衣柜移门材质主要分软、硬包，在整体衣柜里移门，根据五金配件和型材决定了产品的中高低档次。",
+          "image": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/1129\/070ad4023daae4a45ddb75c175a1abab.png",
+          "icon": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/0506\/2e2dc6f7a4124aed2fa447b7f73a0c98.jpg",
+          "parent": "7",
+          "num": 95
+        },
+        {
+          "id": "77",
+          "title": "淋浴房",
+          "explain": "淋浴房主要分一字型、方形、钻石型、扇型几种产品形状，由铝型材、玻璃和地基组合而成，很好的隔断出沐浴空间。",
+          "image": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/1129\/ccf14a83128eaea75b20610ebda0d242.png",
+          "icon": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/0221\/0c6cb59986f2f1dd9f8e1e708dff48c4.png",
+          "parent": "7",
+          "num": 27
+        },
+        {
+          "id": "49",
+          "title": "推拉门",
+          "explain": "推拉门分上吊趟和下轨道二大种类，通过铝合金型材和玻璃的结构，在家用商用中隔断成为了举足轻重的功能性室内门。",
+          "image": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/1129\/9b0fade6690306a87e9f77935c7552a9.png",
+          "icon": "http:\/\/main.tmt58.com\/resource\/upload\/2016\/0811\/2ea4b0df42cb1d240ada5a76033ca230.png",
+          "parent": "7",
+          "num": 118
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "title": "铜门",
+      "explain": "铜门，是一种超豪华的玄关。铜门按照装饰用途可分为豪宅别墅铜门、别墅子母铜门、豪华玻璃铜门、居室铜门、自动旋转铜门、电梯铜门等。同时还经营制作铜花饰、铜饰标牌、铜楼梯扶手、铜窗、铜浮雕壁画等铜装饰工程。",
+      "icon": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/1013\/2e0c5020760fe085c556e8f15e020bdf.png",
+      "num": 2,
+      "child": [
+        {
+          "id": "12",
+          "title": "真铜门",
+          "explain": "铜门是一种外观和实用性非常理想的户外门，铜门带来的是一种内在的气质，并不仅仅是一种表面的豪华，更是一种文化的底蕴显示，也是身份的象征。",
+          "image": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/1129\/f43615edee4c1974c6b291458d3f0683.png",
+          "icon": "http:\/\/main.tmt58.com\/resource\/upload\/2016\/0811\/59ecbecf9bea25e9e28a842578d5d459.png",
+          "parent": "2",
+          "num": 33
+        },
+        {
+          "id": "13",
+          "title": "镀铜门",
+          "explain": "镀铜门整体工艺和铜门一模一样，区别只在外层铜板进行了调整，通过不锈钢钢板表面镀上纯铜工艺达到了和铜门一模一样的效果，比铜门成本稍低的一种户外门。",
+          "image": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/1129\/00742c4dfbc237650ee53448d29f4caf.png",
+          "icon": "http:\/\/main.tmt58.com\/resource\/upload\/2016\/0811\/c333fd786133e9dec18a24a80f91e2e8.png",
+          "parent": "2",
+          "num": 12
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "title": "不锈钢门",
+      "explain": "不锈钢彩板门就是用不锈钢彩色钢板材料剪压加工而成的门，和普通的门外观一样，主要材料是经真空镀色处理不锈钢板材，里面的填充物一般是木板，胶水，泡沫或者是蜂窝纸。",
+      "icon": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/1013\/8e6f47969d85f9fa322b58e9c27f4185.png",
+      "num": 1,
+      "child": [
+        {
+          "id": "46",
+          "title": "不锈钢门",
+          "explain": "不锈钢彩板门就是用不锈钢彩色钢板材料剪压加工而成的门，和普通的门外观一样，主要材料是经真空镀色处理不锈钢板材，里面的填充物一般是木板，胶水，泡沫或者是蜂窝纸。",
+          "image": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/1129\/c2b49103e1fd5f267fdb51edd3a58858.png",
+          "icon": "http:\/\/main.tmt58.com\/resource\/upload\/2016\/0811\/060a277801bb2278318139e0f0ce5bf4.png",
+          "parent": "6",
+          "num": 65
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "title": "防火门",
+      "explain": "防火门指在一定时间内能满足耐火稳定性、完整性和隔热性要求的门。设在防火分区间、疏散楼梯间、垂直竖井等具有一定耐火性的防火分隔物。它除具有普通门的作用外，更具有阻止火势蔓延和烟气扩散的作用。",
+      "icon": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/1013\/a1ee44aedb605c79ef17856939135f1b.png",
+      "num": 2,
+      "child": [
+        {
+          "id": "54",
+          "title": "钢质防火门",
+          "explain": "钢质防火门主要是冷轧钢板、镀锌板、不锈钢板等为主要材料制成的防火门，分甲级、乙级、丙级，代号：GFM。",
+          "image": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/1129\/c2467b9d25ffc97bfb33f3288713354c.png",
+          "icon": "http:\/\/main.tmt58.com\/resource\/upload\/2016\/0811\/fe818558bedeff421342f49a73697e43.png",
+          "parent": "4",
+          "num": 1
+        },
+        {
+          "id": "55",
+          "title": "木质防火门",
+          "explain": "木质防火门主要是优质硬木（进口洋杂木、山樟木、柳桉木）或经防火阻燃处理的松木或铁杉为主要材料制作防火门，分甲级、乙级、丙级，代号：MFM，适合玻璃开孔。",
+          "image": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/1129\/0fd2e3a4366898557b9fe097744995bc.png",
+          "icon": "http:\/\/main.tmt58.com\/resource\/upload\/2016\/0811\/954b2adde33574340d0a92ddb7a47a59.png",
+          "parent": "4",
+          "num": 2
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "title": "门配件",
+      "explain": "门窗配件包括门控五金；高性能户门用五金；塑料、铝合金、木内门用五金件；窗用五金件；特殊类型窗用五金件；建筑门窗用密封胶条；建筑门窗用密封毛条；通风器；建筑门窗用密封胶等9类。",
+      "icon": "http:\/\/main.tmt58.com\/resource\/upload\/2016\/0811\/ab0128a37ba33577c54ede733a7b5de8.png",
+      "num": 3,
+      "child": [
+        {
+          "id": "51",
+          "title": "合页、脚链",
+          "explain": "合页（Hinge），又名合叶，正式名称为铰链。常组成两折式，是连接物体两个部分并能使之活动的部件。普通合页用于橱柜门、窗、门等。",
+          "image": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/1129\/ea75ee8e76374d9d488096ac7410970a.png",
+          "icon": "http:\/\/main.tmt58.com\/resource\/upload\/2016\/0811\/44633502e2641d47489aefbdb6de8dc5.png",
+          "parent": "9",
+          "num": 7
+        },
+        {
+          "id": "52",
+          "title": "锁具",
+          "explain": "锁具是指起封闭作用的器具，它包括锁、钥匙及其附件，一般解释为“必须用钥匙方能开脱的封缄器”，现在，锁具除用钥匙开启外，还可以用光、电、磁、声及指纹等指令开启。",
+          "image": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/1129\/543ab160de51d0361c4105aeb898ab12.png",
+          "icon": "http:\/\/main.tmt58.com\/resource\/upload\/2016\/0811\/ab0128a37ba33577c54ede733a7b5de8.png",
+          "parent": "9",
+          "num": 35
+        },
+        {
+          "id": "53",
+          "title": "门吸",
+          "explain": "门吸是一种门页打开后吸住定位的装置，以防止风吹或碰触门页而关闭。门吸分为永磁门吸和电磁门吸二种，永磁门吸一般用在普通门中，只能手动控制；电磁门吸用在防火门等电控门窗设备，兼有手动控制和自动控制功能。",
+          "image": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/1129\/3a7f37a531309c9365dbe014a9bd42f5.png",
+          "icon": "http:\/\/main.tmt58.com\/resource\/upload\/2016\/0811\/dae8068dde2f365868a3862b46f95ad3.png",
+          "parent": "9",
+          "num": 12
+        }
+      ]
+    },
+    {
+      "id": "72",
+      "title": "装甲门",
+      "explain": "装甲门主要特点是门扇中间为坚固的钢结构体(国内称装甲系统),前后表面各覆盖一层漂亮的且易于更换的饰面材料，饰面可做铝、铜、玻璃、复合木、实木等,具有许多独特的优点。",
+      "icon": "http:\/\/main.tmt58.com\/resource\/upload\/2016\/0811\/53204fe25e6ae9fac03db49a3d8a9601.png",
+      "num": 1,
+      "child": [
+        {
+          "id": "73",
+          "title": "装甲门",
+          "explain": "装甲门主要特点是门扇中间为坚固的钢结构体(国内称装甲系统),前后表面各覆盖一层漂亮的且易于更换的饰面材料，饰面可做铝、铜、玻璃、复合木、实木等,具有许多独特的优点。",
+          "image": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/1129\/62bbcfed7479b0ae018178f84eefd5e4.png",
+          "icon": "http:\/\/main.tmt58.com\/resource\/upload\/2016\/0811\/53204fe25e6ae9fac03db49a3d8a9601.png",
+          "parent": "72",
+          "num": 10
+        }
+      ]
+    },
+    {
+      "id": "102",
+      "title": "隔断门",
+      "explain": "隔断门，应用于隔断装修 ；对分开的两个空间起到驳合、引导和过渡的作用；是连接空间的纽带。隔断门有很多种，包括壁柜门、推拉门、折叠门、活动轨道门、壁柜移门、隔断移门、折叠移门、平开门、橱柜门等等。",
+      "icon": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/0819\/f6c5b99739aa1baad0191407394d297f.png",
+      "num": 1,
+      "child": [
+        {
+          "id": "103",
+          "title": "隔断门",
+          "explain": "隔断门，应用于隔断装修 ；对分开的两个空间起到驳合、引导和过渡的作用；是连接空间的纽带。隔断门有很多种，包括壁柜门、推拉门、折叠门、活动轨道门、壁柜移门、隔断移门、折叠移门、平开门、橱柜门等等。",
+          "image": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/1129\/e9e16108c036f9b347b49ae5869394b1.png",
+          "icon": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/0819\/f6c5b99739aa1baad0191407394d297f.png",
+          "parent": "102",
+          "num": 5
+        }
+      ]
+    },
+    {
+      "id": "120",
+      "title": "门窗",
+      "explain": "门窗安装好后,能让家居生活变得更加的舒适,因此门窗的隔热保温性能就显得尤为重要了，作用是使热传递通道断开，防止冷热传导迅速。",
+      "icon": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/1201\/eb8e785d556342fae1f6016c4c85bfe9.jpg",
+      "num": 1,
+      "child": [
+        {
+          "id": "121",
+          "title": "门窗",
+          "explain": "门窗安装好后,能让家居生活变得更加的舒适,因此门窗的隔热保温性能就显得尤为重要了，作用是使热传递通道断开，防止冷热传导迅速。",
+          "image": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/1201\/123eab644b2eac156e75339fddde64fb.png",
+          "icon": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/1201\/6df4be54ced698f8326e6192e87590eb.jpg",
+          "parent": "120",
+          "num": 7
+        }
+      ]
+    }
+  ]
+}

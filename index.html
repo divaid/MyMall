@@ -2,339 +2,679 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>拼团商城</title>
-    <meta name="keywords" content="拼团商城" />
-    <meta name="description" content="拼团商城" />
-    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>天下乐</title>
+    <meta name="keywords" content="拼团商城"/>
+    <meta name="description" content="拼团商城"/>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
     <script src="js/mui.min.js"></script>
-	<script type="text/javascript" src="Public/js/jquery-easyui-1.3.1/jquery-1.8.2.min.js"></script>
-	<script type="text/javascript" src="https://getfirebug.com/firebug-lite-debug.js"></script>
-	<script type="text/javascript" src="/local/path/to/firebug-lite-debug.js"></script>
+    <script type="text/javascript" src="Public/js/jquery-easyui-1.3.1/jquery-1.8.2.min.js"></script>
+    <script src="js/jquery-1.10.1.min.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script type="text/javascript" src="js/comment.js"></script>
     <link href="css/mui.min.css" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="css/style.css" type="text/css" />
-    <link rel="stylesheet" href="css/swiper.css" />
+    <link rel="stylesheet" href="css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="css/swiper.css"/>
+
+    <style type="text/css">
+        .header {
+            background-color:#00000000;
+            border-bottom:1px solid #00000000;
+        }
+        .header h1 {
+            color:#424345;
+            font-size:21px;
+        }
+        .home-address{
+            line-height: 40px;
+        }
+        .notice-box {
+            position:absolute;
+            top:6px;
+            right:15px;
+        }
+        .notice-box span {
+            display:block;
+            color:#fff;
+            font-size:10px;
+        }
+        .notice-box span.notice-icon {
+            width:22px;
+            height:22px;
+            margin:0 auto;
+            position:relative;
+        }
+        .notice-box span.notice-icon em {
+            width:12px;
+            height:12px;
+            line-height:14px;
+            text-align:center;
+            position:absolute;
+            right:-6px;
+            top:-1px;
+            background-color:#fff;
+            color:#dd2727;
+            font-size:9px;
+            -moz-border-radius:50%;
+            -webkit-border-radius:50%;
+            border-radius:50%;
+        }
+
+        .ind-search {
+            position:absolute;
+            top:9px;
+            left:50px;
+            right:50px;
+            width:auto;
+            height:30px;
+            text-align:center;
+            background-color:#fff;
+            -moz-border-radius:5px;
+            -webkit-border-radius:5px;
+            border-radius:5px;
+            background:transparent;
+            background-color:rgba(255, 255, 255, 0.8);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#ffffff, endColorstr=#ffffff);
+        }
+        .ind-search span {
+            display:inline-block;
+            text-align:center;
+            height:30px;
+            line-height:30px;
+            background-image:url(images/ind-search.png);
+            background-position:left center;
+            background-repeat:no-repeat;
+            background-size:18px 18px;
+            color:#b4b2b3;
+            padding-left:21px;
+            font-size:15px;
+        }
+
+
+
+        .slide-box{
+            padding-bottom: 40px;
+
+            display: -webkit-box;
+            overflow-x: scroll;
+            -webkit-overflow-scrolling:touch;
+        }
+        .slide-item{
+            margin-bottom: 60px;
+            width: 200px;
+            height: 200px;
+            margin-right: 30px;
+        }
+    </style>
+
     <script type="text/javascript">
-        !function(J){function H(){var d=E.getBoundingClientRect().width;var e=(d/7.5>100*B?100*B:(d/7.5<42?42:d/7.5));E.style.fontSize=e+"px",J.rem=e}var G,F=J.document,E=F.documentElement,D=F.querySelector('meta[name="viewport"]'),B=0,A=0;if(D){var y=D.getAttribute("content").match(/initial\-scale=([\d\.]+)/);y&&(A=parseFloat(y[1]),B=parseInt(1/A))}if(!B&&!A){var u=(J.navigator.appVersion.match(/android/gi),J.navigator.appVersion.match(/iphone/gi)),t=J.devicePixelRatio;B=u?t>=3&&(!B||B>=3)?3:t>=2&&(!B||B>=2)?2:1:1,A=1/B}if(E.setAttribute("data-dpr",B),!D){if(D=F.createElement("meta"),D.setAttribute("name","viewport"),D.setAttribute("content","initial-scale="+A+", maximum-scale="+A+", minimum-scale="+A+", user-scalable=no"),E.firstElementChild){E.firstElementChild.appendChild(D)}else{var s=F.createElement("div");s.appendChild(D),F.write(s.innerHTML)}}J.addEventListener("resize",function(){clearTimeout(G),G=setTimeout(H,300)},!1),J.addEventListener("pageshow",function(b){b.persisted&&(clearTimeout(G),G=setTimeout(H,300))},!1),H()}(window);
-        if (typeof(M) == 'undefined' || !M){
+        !function (J) {
+            function H() {
+                var d = E.getBoundingClientRect().width;
+                var e = (d / 7.5 > 100 * B ? 100 * B : (d / 7.5 < 42 ? 42 : d / 7.5));
+                E.style.fontSize = e + "px", J.rem = e
+            }
+
+            var G, F = J.document, E = F.documentElement, D = F.querySelector('meta[name="viewport"]'), B = 0, A = 0;
+            if (D) {
+                var y = D.getAttribute("content").match(/initial\-scale=([\d\.]+)/);
+                y && (A = parseFloat(y[1]), B = parseInt(1 / A))
+            }
+            if (!B && !A) {
+                var u = (J.navigator.appVersion.match(/android/gi), J.navigator.appVersion.match(/iphone/gi)), t = J.devicePixelRatio;
+                B = u ? t >= 3 && (!B || B >= 3) ? 3 : t >= 2 && (!B || B >= 2) ? 2 : 1 : 1, A = 1 / B
+            }
+            if (E.setAttribute("data-dpr", B), !D) {
+                if (D = F.createElement("meta"), D.setAttribute("name", "viewport"), D.setAttribute("content", "initial-scale=" + A + ", maximum-scale=" + A + ", minimum-scale=" + A + ", user-scalable=no"), E.firstElementChild) {
+                    E.firstElementChild.appendChild(D)
+                } else {
+                    var s = F.createElement("div");
+                    s.appendChild(D), F.write(s.innerHTML)
+                }
+            }
+            J.addEventListener("resize", function () {
+                clearTimeout(G), G = setTimeout(H, 300)
+            }, !1), J.addEventListener("pageshow", function (b) {
+                b.persisted && (clearTimeout(G), G = setTimeout(H, 300))
+            }, !1), H()
+        }(window);
+        if (typeof(M) == 'undefined' || !M) {
             window.M = {};
+        }
+    </script>
+
+
+
+
+    <!--轮播广告script与style-->
+    <script type="text/javascript">
+        function timer(opj){
+            $(opj).find('ul').animate({
+                marginTop : "-40px"
+            },500,function(){
+                $(this).css({marginTop : "1px"}).find("li:first").appendTo(this);
+            })
+        }
+        $(function(){
+            var num = $('.notice_active').find('li').length;
+            if(num > 1){
+                var time=setInterval('timer(".notice_active")',3500);
+                $('.gg_more a').mousemove(function(){
+                    clearInterval(time);
+                }).mouseout(function(){
+                    time = setInterval('timer(".notice_active")',3500);
+                });
+            }
+            $(".news_ck").click(function(){
+                location.href = $(".notice_active .notice_active_ch").children(":input").val();
+            })
+        });
+        function carouselAdvertising () {
+            var num = $('.notice_active').find('li').length;
+            if(num > 1){
+                var time=setInterval('timer(".notice_active")',3500);
+                $('.gg_more a').mousemove(function(){
+                    clearInterval(time);
+                }).mouseout(function(){
+                    time = setInterval('timer(".notice_active")',3500);
+                });
+            }
+            $(".news_ck").click(function(){
+                location.href = $(".notice_active .notice_active_ch").children(":input").val();
+            })
         }
     </script>
 </head>
 <body>
-	<!--头部导航-->
-	<div id="header">
-	  <div class="swiper-wrapper">
-	    <a class="swiper-slide current" href="">首页</a>
-	    <a class="swiper-slide" href="">箱包服饰</a>
-	    <a class="swiper-slide" href="">家居生活</a>
-	    <a class="swiper-slide" href="">母婴玩具</a>
-	    <a class="swiper-slide" href="">食品饮料</a>
-	    <a class="swiper-slide" href="">数码家电</a>
-	    <a class="swiper-slide" href="">美妆护肤</a>
-	    <a class="swiper-slide" href="">家纺家具</a>
-	    <a class="swiper-slide" href="">水果生鲜</a>
-	  </div>
-	</div>
-	<div class="mb-50"></div>
-	<!--图片轮播-->
-	<div id="slider" class="mui-slider" >
-	  <div class="mui-slider-group mui-slider-loop">
-	    <div class="mui-slider-item mui-slider-item-duplicate">
-	      <a href=""> <img src="images/banner.jpg"> </a>
-	    </div>
-	    <div class="mui-slider-item">
-	      <a href=""> <img src="images/banner.jpg"> </a>
-	    </div>
-	    <div class="mui-slider-item">
-	      <a href=""><img src="images/banner.jpg"></a>
-	    </div>
-	    <div class="mui-slider-item">
-	      <a href=""> <img src="images/banner.jpg"> </a>
-	    </div>
-	    <div class="mui-slider-item">
-	      <a href="">
-	        <img src="images/banner.jpg">
-	      </a>
-	    </div>
-	    <div class="mui-slider-item mui-slider-item-duplicate">
-	      <a href="#"><img src="images/banner.jpg"> </a>
-	    </div>
-	  </div>
-	  <div class="mui-slider-indicator">
-	    <div class="mui-indicator mui-active"></div>
-	    <div class="mui-indicator"></div>
-	    <div class="mui-indicator"></div>
-	    <div class="mui-indicator"></div>
-	  </div>
-	</div>
-	<!--入口导航-->
-	<ul class="nav">
-		<li>
-			<a href="tmt://test/indexList?type=木门">
-				<img src="images/super_spike.png" />
-				<p>限时秒杀</p>
-			</a>
-		</li>
-		<li>
-			<a href="">
-				<img src="images/nav.jpg" />
-				<p>超值大牌</p>
-			</a>
-		</li>
-		<li>
-			<a href="">
-				<img src="images/special99.png" />
-				<p>9块9特卖</p>
-			</a>
-		</li>
-		<li>
-			<a href="">
-				<img src="images/subjects.png" />
-				<p>母婴童装</p>
-			</a>
-		</li>
-		<li>
-			<a href="">
-				<img src="images/entry_lux.png" />
-				<p>爱轻奢</p>
-			</a>
-		</li>
-		<li>
-			<a href="">
-				<img src="images/subjects (2).png" />
-				<p>爱逛街</p>
-			</a>
-		</li>
-		<li>
-			<a href="">
-				<img src="images/subject_502.png" />
-				<p>品质水果</p>
-			</a>
-		</li>
-		<li>
-			<a href="">
-				<img src="images/furniture_v2.png" />
-				<p>居家优品</p>
-			</a>
-		</li>
-		<li>
-			<a href="">
-				<img src="images/food.png" />
-				<p>美食汇</p>
-			</a>
-		</li>
-		<li>
-			<a href="">
-				<img src="images/charge.png" />
-				<p>手机充值</p>
-			</a>
-		</li>
-	</ul>
-	<!--提示消息-->
-	<!--<div class="message">-->
-		<!--<a href="">-->
-			<!--<div class="message-img fl"><img src="images/t2.jpg" /></div>-->
-			<!--<div class="message-text fr">北京的江南风格 1秒前开团了 ></div>-->
-		<!--</a>-->
-	<!--</div>-->
-	<div class="advantage">
-		<a href=""><img src="images/active_banner.png"/></a>
-	</div>
+<!--头部导航-->
+<!--<div id="header">
+  <div class="swiper-wrapper">
+    <a class="swiper-slide current" href="">首页</a>
+    <a class="swiper-slide" href="">箱包服饰</a>
+    <a class="swiper-slide" href="">家居生活</a>
+    <a class="swiper-slide" href="">母婴玩具</a>
+    <a class="swiper-slide" href="">食品饮料</a>
+    <a class="swiper-slide" href="">数码家电</a>
+    <a class="swiper-slide" href="">美妆护肤</a>
+    <a class="swiper-slide" href="">家纺家具</a>
+    <a class="swiper-slide" href="">水果生鲜</a>
+  </div>
+</div>
+<div class="mb-50"></div>-->
 
-	<!--开团列表-->
-	<ul class="groups">
-		<li>
-			<a href="detail.html">
-				<div class="groups-img"><img src="images/test.jpg"/></div>
-				<h2 class="groups-title">【超值多种肉肉植物套餐】精选6棵多肉植物 高端多肉植物 群生玉露【超值多种肉肉植物套餐】精选6棵多肉植物 高端多肉植物 群生玉露</h2>
-				<div class="groups-detail">
-					<div class="groups-detail-left fl">
-						<div class="price fl"><i>￥</i>9.9</div>
-						<div class="des fr">已团100万件</div>
-					</div>
-					<div class="groups-detail-right fr">
-						<div class="group-local fl">
-							<div class="avatar fr"><img src="images/t1.jpg"/></div>
-							<div class="avatar fr"><img src="images/t2.jpg"/></div>
-						</div>
-						<div class="group-btn fr">
-							<a href="">去开团 ></a>
-						</div>
-					</div>
-				</div>
-			</a>
-		</li>
-		<li>
-			<a href="detail.html">
-				<div class="groups-img"><img src="images/test.jpg"/></div>
-				<h2 class="groups-title">【超值多种肉肉植物套餐】精选6棵多肉植物 高端多肉植物 群生玉露【超值多种肉肉植物套餐】精选6棵多肉植物 高端多肉植物 群生玉露</h2>
-				<div class="groups-detail">
-					<div class="groups-detail-left fl">
-						<div class="price fl"><i>￥</i>9.9</div>
-						<div class="des fr">已团100万件</div>
-					</div>
-					<div class="groups-detail-right fr">
-						<div class="group-local fl">
-							<div class="avatar fr"><img src="images/t1.jpg"/></div>
-							<div class="avatar fr"><img src="images/t2.jpg"/></div>
-						</div>
-						<div class="group-btn fr">
-							<a href="">去开团 ></a>
-						</div>
-					</div>
-				</div>
-			</a>
-		</li>
-	</ul>
-	<!--专题活动-->
-	<div class="active">
-		<h2 class="title">
-			<span class="fl">春妆来袭，不止是1折☛☛☛☛</span>
-			<a class="fr"  href="">查看更多></a>
-		</h2>
-		<div class="swiper-container">
-	        <div class="swiper-wrapper">
-	            <div class="swiper-slide">
-	            	<a href="detail.html">
-	            	     <div class="goods-img"><img src="images/goods.jpg"/></div>
-	            	     <p class="goods-title">【冰丝沙发垫 凉而不冰】艾蒙莎冰丝凉席沙发垫超值三件套</p>
-	            	     <h2 class="goods-price"><i>￥</i>59.8</h2>
-	            	</a>
-	            </div>
-	            <div class="swiper-slide">
-	            	<a href="detail.html">
-	            	     <div class="goods-img"><img src="images/goods.jpg"/></div>
-	            	     <p class="goods-title">【冰丝沙发垫 凉而不冰】艾蒙莎冰丝凉席沙发垫超值三件套</p>
-	            	     <h2 class="goods-price"><i>￥</i>59.8</h2>
-	            	</a>
-	            </div>
-	            <div class="swiper-slide">
-	            	<a href="detail.html">
-	            	     <div class="goods-img"><img src="images/goods.jpg"/></div>
-	            	     <p class="goods-title">【冰丝沙发垫 凉而不冰】艾蒙莎冰丝凉席沙发垫超值三件套</p>
-	            	     <h2 class="goods-price"><i>￥</i>59.8</h2>
-	            	</a>
-	            </div>
-	            <div class="swiper-slide">
-	            	<a href="detail.html">
-	            	     <div class="goods-img"><img src="images/goods.jpg"/></div>
-	            	     <p class="goods-title">【冰丝沙发垫 凉而不冰】艾蒙莎冰丝凉席沙发垫超值三件套</p>
-	            	     <h2 class="goods-price"><i>￥</i>59.8</h2>
-	            	</a>
-	            </div>
-	            <div class="swiper-slide">
-	            	<a href="detail.html">
-	            	     <div class="goods-img"><img src="images/goods.jpg"/></div>
-	            	     <p class="goods-title">【冰丝沙发垫 凉而不冰】艾蒙莎冰丝凉席沙发垫超值三件套</p>
-	            	     <h2 class="goods-price"><i>￥</i>59.8</h2>
-	            	</a>
-	            </div>
-	            <div class="swiper-slide">
-	            	<a href="detail.html">
-	            	     <div class="goods-img"><img src="images/goods.jpg"/></div>
-	            	     <p class="goods-title">【冰丝沙发垫 凉而不冰】艾蒙莎冰丝凉席沙发垫超值三件套</p>
-	            	     <h2 class="goods-price"><i>￥</i>59.8</h2>
-	            	</a>
-	            </div>
-	        </div>
+<header class="header mui-bar mui-bar-nav">
+    <div class="home-address">
+        地址
+    </div>
+    <a class="ind-search" href="#"><span>搜索想要的宝贝</span></a>
+    <div class="notice-box">
+        <span class="notice-icon"><img src="images/notice-icon.png"><em>2</em></span>
+        <span>消息</span>
+    </div>
+</header>
+
+<!-- Swiper -->
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="images/banner.png" alt=""></div>
+        <div class="swiper-slide"><img src="images/banner.png" alt=""></div>
+        <div class="swiper-slide"><img src="images/banner.png" alt=""></div>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+</div>
+
+
+
+<!--图片轮播-->
+<div id="slider" class="mui-slider">
+    <div id="slider-content" class="mui-slider-group mui-slider-loop">
+        <div class="mui-slider-item">
+            <a href=""> <img src="images/banner.jpg"> </a>
         </div>
-	</div>
-	<!--开团列表-->
-	<ul class="groups">
-		<li>
-			<a href="detail.html">
-				<div class="groups-img"><img src="images/test.jpg"/></div>
-				<h2 class="groups-title">【超值多种肉肉植物套餐】精选6棵多肉植物 高端多肉植物 群生玉露【超值多种肉肉植物套餐】精选6棵多肉植物 高端多肉植物 群生玉露</h2>
-				<div class="groups-detail">
-					<div class="groups-detail-left fl">
-						<div class="price fl"><i>￥</i>9.9</div>
-						<div class="des fr">已团100万件</div>
-					</div>
-					<div class="groups-detail-right fr">
-						<div class="group-local fl">
-							<div class="avatar fr"><img src="images/t1.jpg"/></div>
-							<div class="avatar fr"><img src="images/t2.jpg"/></div>
-						</div>
-						<div class="group-btn fr">
-							<a href="">去开团 ></a>
-						</div>
-					</div>
-				</div>
-			</a>
-		</li>
-		<li>
-			<a href="detail.html">
-				<div class="groups-img"><img src="images/test.jpg"/></div>
-				<h2 class="groups-title">【超值多种肉肉植物套餐】精选6棵多肉植物 高端多肉植物 群生玉露【超值多种肉肉植物套餐】精选6棵多肉植物 高端多肉植物 群生玉露</h2>
-				<div class="groups-detail">
-					<div class="groups-detail-left fl">
-						<div class="price fl"><i>￥</i>9.9</div>
-						<div class="des fr">已团100万件</div>
-					</div>
-					<div class="groups-detail-right fr">
-						<div class="group-local fl">
-							<div class="avatar fr"><img src="images/t1.jpg"/></div>
-							<div class="avatar fr"><img src="images/t2.jpg"/></div>
-						</div>
-						<div class="group-btn fr">
-							去开团 >
-						</div>
-					</div>
-				</div>
-			</a>
-		</li>
-	</ul>
+        <div class="mui-slider-item">
+            <a href=""><img src="images/banner.jpg"></a>
+        </div>
+        <div class="mui-slider-item">
+            <a href=""> <img src="images/banner.jpg"> </a>
+        </div>
+        <div class="mui-slider-item">
+            <a href="">
+                <img src="images/banner.jpg">
+            </a>
+        </div>
+        <div class="mui-slider-item mui-slider-item-duplicate">
+            <a href="#"><img src="images/banner.jpg"> </a>
+        </div>
+    </div>
+    <div id="slider-dot" class="mui-slider-indicator">
+                <div class="mui-indicator mui-active"></div>
+               <div class="mui-indicator"></div>
+                <div class="mui-indicator"></div>
+    </div>
+</div>
 
-	<!--底部导航-->
-	<div class="mb-50"></div>
-	<nav class="mui-bar mui-bar-tab ">
-	    <a class="mui-tab-item mui-active" href="index.html">
-	        <span class="mui-icon iconfont">&#xe622;</span>
-	        <span class="mui-tab-label">首页</span>
-	    </a>
-		<a class="mui-tab-item" href="classes.html">
-			<span class="mui-icon iconfont">&#xe625;</span>
-			<span class="mui-tab-label">分类</span>
-		</a>
-	    <a class="mui-tab-item" href="news.html">
-	        <span class="mui-icon iconfont">&#xe640;</span>
-	        <span class="mui-tab-label">新品</span>
-	    </a>
-	    <a class="mui-tab-item" href="cart.html">
-	        <span class="mui-icon iconfont">&#xe600;</span>
-	        <span class="mui-tab-label">购物车</span>
-	    </a>
 
-	     <a class="mui-tab-item" href="member.html">
-	        <span class="mui-icon iconfont">&#xe6d7;</span>
-	        <span class="mui-tab-label">个人中心</span>
-	    </a>
-	</nav>
-    <script src="js/jquery-1.10.1.min.js"></script>
-    <script src="js/swiper.min.js"></script>
-    <script type="text/javascript" src="js/comment.js" ></script>
+<!--入口导航-->
+<ul class="nav">
+    <!--<li>
+        <a href="tmt://test/search?type=木门">
+            <img src="http://main.tmt58.com/resource/upload/2017/1013/a5220fc1bd452722b7e20c321fd749a7.png"/>
+            <p>木门</p>
+        </a>
+    </li>
+    <li>
+        <a href="">
+            <img src="http:\/\/main.tmt58.com\/resource\/upload\/2017\/1013\/7ff85391c929ff1a7dc71f43346b374b.png"/>
+            <p>防盗门</p>
+        </a>
+    </li>
+    <li>
+        <a href="">
+            <img src="http:\/\/main.tmt58.com\/resource\/upload\/2017\/1013\/1f541255df5163dfc0294cb25e85e986.png"/>
+            <p>非标门</p>
+        </a>
+    </li>
+    <li>
+        <a href="">
+            <img src="http:\/\/main.tmt58.com\/resource\/upload\/2017\/1013\/0ac5027fed5b6f535ab5cb622a8d0c11.png"/>
+            <p>卫浴门移门</p>
+        </a>
+    </li>
+    <li>
+        <a href="">
+            <img src="http:\/\/main.tmt58.com\/resource\/upload\/2017\/1013\/2e0c5020760fe085c556e8f15e020bdf.png"/>
+            <p>铜门</p>
+        </a>
+    </li>
+    <li>
+        <a href="">
+            <img src="http:\/\/main.tmt58.com\/resource\/upload\/2017\/1013\/8e6f47969d85f9fa322b58e9c27f4185.png"/>
+            <p>不锈钢门</p>
+        </a>
+    </li>
+    <li>
+        <a href="">
+            <img src="http:\/\/main.tmt58.com\/resource\/upload\/2017\/1013\/a1ee44aedb605c79ef17856939135f1b.png"/>
+            <p>防火门</p>
+        </a>
+    </li>
+    <li>
+        <a href="">
+            <img src="http:\/\/main.tmt58.com\/resource\/upload\/2016\/0811\/ab0128a37ba33577c54ede733a7b5de8.png"/>
+            <p>门配件</p>
+        </a>
+    </li>
+    <li>
+        <a href="">
+            <img src="http:\/\/main.tmt58.com\/resource\/upload\/2016\/0811\/53204fe25e6ae9fac03db49a3d8a9601.png"/>
+            <p>装甲门</p>
+        </a>
+    </li>
+    <li>
+        <a href="">
+            <img src="images/ic_home_classes.png"/>
+            &lt;!&ndash;<img src="http:\/\/main.tmt58.com\/resource\/upload\/2016\/0811\/53204fe25e6ae9fac03db49a3d8a9601.png"/>&ndash;&gt;
+            <p>全部分类</p>
+        </a>
+    </li>-->
+</ul>
+
+
+<div class="huadong">
+    <div class="huabox">
+        <div class="hdimg"><img src="images/lingdang.png"></div>
+        <h5>【公告】</h5>
+        <div class="notice_active">
+            <ul id="news">
+                <!--<li class="notice_active_ch">
+                    <span class="one-line">滑动轮播1a去哦我我iwoi我i滑动轮播3滑</span>
+                    <em>2017-01-20</em>
+                </li>
+                <li class="notice_active_ch">
+                    <span class="one-line">滑动轮播2滑动轮播3</span>
+                    <em>2017-01-20</em>
+                </li>
+                <li class="notice_active_ch">
+                    <span class="one-line">xw素材网文字滚动播放</span>
+                    <em>2017-01-20</em>
+                </li>-->
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+<!--提示消息
+<div class="message">
+<a href="">
+<div class="message-img fl"><img src="images/t2.jpg" /></div>
+<div class="message-text fr">北京的江南风格 1秒前开团了 ></div>
+</a>
+</div>-->
+<div class="advantage">
+    <a href=""><img src="images/active_banner.png"/></a>
+</div>
+
+<!--开团列表-->
+<ul class="groups">
+    <li>
+        <a href="detail.html">
+            <div class="groups-img"><img src="images/test.jpg"/></div>
+            <h2 class="groups-title">【超值多种肉肉植物套餐】精选6棵多肉植物 高端多肉植物 群生玉露【超值多种肉肉植物套餐】精选6棵多肉植物 高端多肉植物 群生玉露</h2>
+            <div class="groups-detail">
+                <div class="groups-detail-left fl">
+                    <div class="price fl"><i>￥</i>9.9</div>
+                    <div class="des fr">已团100万件</div>
+                </div>
+                <div class="groups-detail-right fr">
+                    <div class="group-local fl">
+                        <div class="avatar fr"><img src="images/t1.jpg"/></div>
+                        <div class="avatar fr"><img src="images/t2.jpg"/></div>
+                    </div>
+                    <div class="group-btn fr">
+                        <a href="">去开团 ></a>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a href="detail.html">
+            <div class="groups-img"><img src="images/test.jpg"/></div>
+            <h2 class="groups-title">【超值多种肉肉植物套餐】精选6棵多肉植物 高端多肉植物 群生玉露【超值多种肉肉植物套餐】精选6棵多肉植物 高端多肉植物 群生玉露</h2>
+            <div class="groups-detail">
+                <div class="groups-detail-left fl">
+                    <div class="price fl"><i>￥</i>9.9</div>
+                    <div class="des fr">已团100万件</div>
+                </div>
+                <div class="groups-detail-right fr">
+                    <div class="group-local fl">
+                        <div class="avatar fr"><img src="images/t1.jpg"/></div>
+                        <div class="avatar fr"><img src="images/t2.jpg"/></div>
+                    </div>
+                    <div class="group-btn fr">
+                        <a href="">去开团 ></a>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+</ul>
+<!--专题活动-->
+<div class="active">
+    <h2 class="title">
+        <span class="fl">精品推荐</span>
+        <a class="fr" href="">查看更多></a>
+    </h2>
+
+    <div class="slide-box">
+        <!--<div class="slide-item">
+            <a href="detail.html">
+                <div class="goods-img"><img src="http:\/\/main.tmt58.com\/resource\/upload\/2017\/0819\/7535a343629c6410fd20bdae8da1b345.jpg"/></div>
+                <p class="goods-title">三件套</p>
+                <h2 class="goods-price"><i>￥</i>59.8</h2>
+            </a>
+        </div>
+        <div class="slide-item">
+            <a href="detail.html">
+                <div class="goods-img"><img src="http:\/\/main.tmt58.com\/resource\/upload\/2017\/0819\/7535a343629c6410fd20bdae8da1b345.jpg"/></div>
+                <p class="goods-title">三件套</p>
+                <h2 class="goods-price"><i>￥</i>59.8</h2>
+            </a>
+        </div>
+        <div class="slide-item">
+            <a href="detail.html">
+                <div class="goods-img"><img src="http:\/\/main.tmt58.com\/resource\/upload\/2017\/0819\/7535a343629c6410fd20bdae8da1b345.jpg"/></div>
+                <p class="goods-title">三件套</p>
+                <h2 class="goods-price"><i>￥</i>59.8</h2>
+            </a>
+        </div>
+        <div class="slide-item">
+            <a href="detail.html">
+                <div class="goods-img"><img src="http:\/\/main.tmt58.com\/resource\/upload\/2017\/0819\/7535a343629c6410fd20bdae8da1b345.jpg"/></div>
+                <p class="goods-title">三件套</p>
+                <h2 class="goods-price"><i>￥</i>59.8</h2>
+            </a>
+        </div>
+        <div class="slide-item">
+            <a href="detail.html">
+                <div class="goods-img"><img src="http:\/\/main.tmt58.com\/resource\/upload\/2017\/0819\/7535a343629c6410fd20bdae8da1b345.jpg"/></div>
+                <p class="goods-title">三件套</p>
+                <h2 class="goods-price"><i>￥</i>59.8</h2>
+            </a>
+        </div>-->
+    </div>
+
+
+    <!--<div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <a href="detail.html">
+                    <div class="goods-img"><img src="http:\/\/main.tmt58.com\/resource\/upload\/2017\/0819\/7535a343629c6410fd20bdae8da1b345.jpg"/></div>
+                    <p class="goods-title">三件套</p>
+                    <h2 class="goods-price"><i>￥</i>59.8</h2>
+                </a>
+            </div>
+
+
+            <div class="swiper-slide">
+                <a href="detail.html">
+                    <div class="goods-img"><img src="http:\/\/main.tmt58.com\/resource\/upload\/2017\/0819\/7535a343629c6410fd20bdae8da1b345.jpg"/></div>
+                    <p class="goods-title">【冰丝沙发垫 凉而不冰】艾蒙莎冰丝凉席沙发垫超值三件套</p>
+                    <h2 class="goods-price"><i>￥</i>59.8</h2>
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a href="detail.html">
+                    <div class="goods-img"><img src="images/goods.jpg"/></div>
+                    <p class="goods-title">【冰丝沙发垫 凉而不冰】艾蒙莎冰丝凉席沙发垫超值三件套</p>
+                    <h2 class="goods-price"><i>￥</i>59.8</h2>
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a href="detail.html">
+                    <div class="goods-img"><img src="images/goods.jpg"/></div>
+                    <p class="goods-title">【冰丝沙发垫 凉而不冰】艾蒙莎冰丝凉席沙发垫超值三件套</p>
+                    <h2 class="goods-price"><i>￥</i>59.8</h2>
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a href="detail.html">
+                    <div class="goods-img"><img src="images/goods.jpg"/></div>
+                    <p class="goods-title">【冰丝沙发垫 凉而不冰】艾蒙莎冰丝凉席沙发垫超值三件套</p>
+                    <h2 class="goods-price"><i>￥</i>59.8</h2>
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a href="detail.html">
+                    <div class="goods-img"><img src="images/goods.jpg"/></div>
+                    <p class="goods-title">【冰丝沙发垫 凉而不冰】艾蒙莎冰丝凉席沙发垫超值三件套</p>
+                    <h2 class="goods-price"><i>￥</i>59.8</h2>
+                </a>
+            </div>
+        </div>
+    </div>-->
+</div>
+<!--开团列表-->
+<!--<ul class="groups">
+    <li>
+        <a href="detail.html">
+            <div class="groups-img"><img src="images/test.jpg"/></div>
+            <h2 class="groups-title">【超值多种肉肉植物套餐】精选6棵多肉植物 高端多肉植物 群生玉露【超值多种肉肉植物套餐】精选6棵多肉植物 高端多肉植物 群生玉露</h2>
+            <div class="groups-detail">
+                <div class="groups-detail-left fl">
+                    <div class="price fl"><i>￥</i>9.9</div>
+                    <div class="des fr">已团100万件</div>
+                </div>
+                <div class="groups-detail-right fr">
+                    <div class="group-local fl">
+                        <div class="avatar fr"><img src="images/t1.jpg"/></div>
+                        <div class="avatar fr"><img src="images/t2.jpg"/></div>
+                    </div>
+                    <div class="group-btn fr">
+                        <a href="">去开团 ></a>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a href="detail.html">
+            <div class="groups-img"><img src="images/test.jpg"/></div>
+            <h2 class="groups-title">【超值多种肉肉植物套餐】精选6棵多肉植物 高端多肉植物 群生玉露【超值多种肉肉植物套餐】精选6棵多肉植物 高端多肉植物 群生玉露</h2>
+            <div class="groups-detail">
+                <div class="groups-detail-left fl">
+                    <div class="price fl"><i>￥</i>9.9</div>
+                    <div class="des fr">已团100万件</div>
+                </div>
+                <div class="groups-detail-right fr">
+                    <div class="group-local fl">
+                        <div class="avatar fr"><img src="images/t1.jpg"/></div>
+                        <div class="avatar fr"><img src="images/t2.jpg"/></div>
+                    </div>
+                    <div class="group-btn fr">
+                        去开团 >
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+</ul>-->
+
+<!--底部导航-->
+<div class="mb-50"></div>
+<nav class="mui-bar mui-bar-tab ">
+    <a class="mui-tab-item mui-active" href="index.html">
+        <span class="mui-icon iconfont">&#xe622;</span>
+        <span class="mui-tab-label">首页</span>
+    </a>
+    <a class="mui-tab-item" href="classes.html">
+        <span class="mui-icon iconfont">&#xe625;</span>
+        <span class="mui-tab-label">分类</span>
+    </a>
+    <!--<a class="mui-tab-item" href="news.html">
+        <span class="mui-icon iconfont">&#xe600;</span>
+        <span class="mui-tab-label">新品</span>
+    </a>-->
+    <a class="mui-tab-item" href="cart.html">
+        <span class="mui-icon iconfont">&#xe640;</span>
+        <span class="mui-tab-label">购物车</span>
+    </a>
+
+    <a class="mui-tab-item" href="member.html">
+        <span class="mui-icon iconfont">&#xe6d7;</span>
+        <span class="mui-tab-label">个人中心</span>
+    </a>
+</nav>
+
 <script type="text/javascript">
-	var ajax = new XMLHttpRequest();
-	//步骤二:设置请求的url参数,参数一是请求的类型,参数二是请求的url,可以带参数,动态的传递参数starName到服务端
-	ajax.open('get','http://main.tmt58.com/account/getIndexList');
-	//步骤三:发送请求
-	ajax.send();
-	console.log("开始请求网络。。。。。。。。")
-	//步骤四:注册事件 onreadystatechange 状态改变就会调用
-	ajax.onreadystatechange = function () {
-		alert(xml.readyState)
 
-		if (ajax.readyState==4 &&ajax.status==200) {
-			//步骤五 如果能够进到这个判断 说明 数据 完美的回来了,并且请求的页面是存在的
-			console.log("......."+xml.responseText);//输入相应的内容
-		}
-	};
 
-	//取Ajax返回结果
-	//为了简单，这里简单地从文件中读取内容作为返回数据
-	htmlobj=$.ajax({url:"http://main.tmt58.com/account/getIndexList",async:false});
-	//显示Ajax返回结果
-	$("#myDiv").html(htmlobj.responseText);
+    $(window).bind("scroll",function() {
+        if ($(document).scrollTop() > 100) {
+            $(".header").css({'background-color':'#dd2727','transition':'0.4s'});
+        }else{
+            $(".header").css({'background-color':'transparent','transition':'0.4s'});
+        }
+    });
+
+
+
+
+    var ajaxTest = new XMLHttpRequest();
+    //步骤二:设置请求的url参数,参数一是请求的类型,参数二是请求的url,可以带参数,动态的传递参数starName到服务端
+    ajaxTest.open('get', 'json/home.json',true);//TODO 切换真实网址
+    //步骤三:发送请求
+    ajaxTest.send();
+    console.log("开始请求网络。。。。。。。。")
+    //步骤四:注册事件 onreadystatechange 状态改变就会调用
+    ajaxTest.onreadystatechange = function () {
+        if (ajaxTest.readyState == 4) {
+            var obj = "";
+            if (ajaxTest.status == 200) {
+
+                //步骤五 如果能够进到这个判断 说明 数据 完美的回来了,并且请求的页面是存在的
+//                console.log("......." + ajaxTest.responseText);//输入相应的内容
+                obj = JSON.parse(ajaxTest.responseText);
+            } else {
+                //本地测试
+
+//                debugger;
+
+                obj = JSON.parse('{"error":0,"errorMsg":"成功！","data":{"banner":' +
+                        '[{"id":"39","type":"1","title":"一品","image":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/1116\/7fce62e7025dfc1ae7d62c480dc7b2c5.jpg","url_title":"一品创展木门","url":"8b765cdc-4626-6f0c-2359-31f15718287d","rank":"0","status":"1","time":"1510715093","new_type":"0"},' +
+                        '{"id":"27","type":"1","title":"宇洁不锈钢","image":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/0512\/9c06780f41789321e07b11b2023257b4.jpg","url_title":"宇洁不锈钢","url":"c0d3ff02-c880-972b-757f-4faee1fd995e","rank":"9","status":"1","time":"1494569193","new_type":"0"},' +
+                        '{"id":"31","type":"1","title":"大掌门别墅门","image":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/0725\/e3d709833542a74703d750f7c882ca96.jpg","url_title":"大掌门非标门","url":"84d024d4-c8a1-ce48-4ab1-d96fcea8d044","rank":"11","status":"1","time":"1500970217","new_type":"0"},' +
+                        '{"id":"28","type":"1","title":"晨星","image":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/0629\/291507e0da12533d3b8c29568497c1b4.jpg","url_title":"晨星安全防盗门","url":"0c9f7374-e6ca-0881-1f6f-a380becdeaef","rank":"12","status":"1","time":"1498723253","new_type":"0"},' +
+                        '{"id":"30","type":"1","title":"德意欧","image":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/0724\/ef1f111ad2a71ce68cc9a6db6dd41f66.jpg","url_title":"德意欧别墅门","url":"fbc5689f-8cca-e6f6-1404-e57ed7bf1c3d","rank":"13","status":"1","time":"1500883216","new_type":"0"}],'
+                        +
+                        '"classify":[{"id":"1","title":"木门","icon":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/1013\/a5220fc1bd452722b7e20c321fd749a7.png","explain":"木门，即木制的门。按照材质、工艺及用途可以分为很多种类。广泛适用于民、商用建筑及住宅。"},' +
+                        '{"id":"5","title":"防盗门","icon":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/1013\/7ff85391c929ff1a7dc71f43346b374b.png","explain":"防盗门的全称为“防盗安全门”。按防盗安全级别共分4级，分别为甲、乙、丙、丁四级从高到低，依次递减。"},' +
+                        '{"id":"8","title":"非标门","icon":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/1013\/1f541255df5163dfc0294cb25e85e986.png","explain":"非标准尺寸的门就是非标门！门是非标门还是标准门与材料无关，只与尺寸有关。没有固定的尺寸和样式。"},' +
+                        '{"id":"7","title":"卫浴门移门","icon":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/1013\/0ac5027fed5b6f535ab5cb622a8d0c11.png","explain":"卫浴门是卫生间门与浴室门的总称，一般采用塑钢、铝合金、钛镁合金、玻璃制作。移门指门扇连接滑轮并在固定的轨道上可移动的门，即推拉门。"},' +
+                        '{"id":"2","title":"铜门","icon":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/1013\/2e0c5020760fe085c556e8f15e020bdf.png","explain":"铜门，是一种超豪华的玄关。铜门按照装饰用途可分为豪宅别墅铜门、别墅子母铜门、豪华玻璃铜门、居室铜门、自动旋转铜门、电梯铜门等。同时还经营制作铜花饰、铜饰标牌、铜楼梯扶手、铜窗、铜浮雕壁画等铜装饰工程。"},' +
+                        '{"id":"6","title":"不锈钢门","icon":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/1013\/8e6f47969d85f9fa322b58e9c27f4185.png","explain":"不锈钢彩板门就是用不锈钢彩色钢板材料剪压加工而成的门，和普通的门外观一样，主要材料是经真空镀色处理不锈钢板材，里面的填充物一般是木板，胶水，泡沫或者是蜂窝纸。"},' +
+                        '{"id":"4","title":"防火门","icon":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/1013\/a1ee44aedb605c79ef17856939135f1b.png","explain":"防火门指在一定时间内能满足耐火稳定性、完整性和隔热性要求的门。设在防火分区间、疏散楼梯间、垂直竖井等具有一定耐火性的防火分隔物。它除具有普通门的作用外，更具有阻止火势蔓延和烟气扩散的作用。"},' +
+                        '{"id":"9","title":"门配件","icon":"http:\/\/main.tmt58.com\/resource\/upload\/2016\/0811\/ab0128a37ba33577c54ede733a7b5de8.png","explain":"门窗配件包括门控五金；高性能户门用五金；塑料、铝合金、木内门用五金件；窗用五金件；特殊类型窗用五金件；建筑门窗用密封胶条；建筑门窗用密封毛条；通风器；建筑门窗用密封胶等9类。"},' +
+                        '{"id":"72","title":"装甲门","icon":"http:\/\/main.tmt58.com\/resource\/upload\/2016\/0811\/53204fe25e6ae9fac03db49a3d8a9601.png","explain":"装甲门主要特点是门扇中间为坚固的钢结构体(国内称装甲系统),前后表面各覆盖一层漂亮的且易于更换的饰面材料，饰面可做铝、铜、玻璃、复合木、实木等,具有许多独特的优点。"},' +
+                        '{"id":"102","title":"隔断门","icon":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/0819\/f6c5b99739aa1baad0191407394d297f.png","explain":"隔断门，应用于隔断装修 ；对分开的两个空间起到驳合、引导和过渡的作用；是连接空间的纽带。隔断门有很多种，包括壁柜门、推拉门、折叠门、活动轨道门、壁柜移门、隔断移门、折叠移门、平开门、橱柜门等等。"},' +
+                        '{"id":"120","title":"门窗","icon":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/1201\/eb8e785d556342fae1f6016c4c85bfe9.jpg","explain":"门窗安装好后,能让家居生活变得更加的舒适,因此门窗的隔热保温性能就显得尤为重要了，作用是使热传递通道断开，防止冷热传导迅速。"}]'+
+                ',"hot":[{"productid":"dbdcfaf9-08bc-f5f9-c26b-208b1050784d","title":"广东讴德OKD-157原木门","salePrice":"1239.00","unit":"元\/樘","preview":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/0819\/7535a343629c6410fd20bdae8da1b345.jpg","business":"广东讴德原木门"},' +
+                        '{"productid":"30484aa9-ca3a-a6c5-9b91-86ce0dc00cb6","title":"特价九重JC-1632双喜临门甲级安全门防盗门（有库存）","salePrice":"918.00","unit":"元\/樘","preview":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/0819\/fe3a8054352a0e7f1e59748a89fee4ec.jpg","business":"浙江九重门业"},' +
+                        '{"productid":"dcf184c5-8146-d1f2-36ee-c09df2276bb9","title":"特价《迎凯佳·庄哲》凯佳名光10CM丁级自动锁防盗门（现货）","salePrice":"1451.00","unit":"元\/樘","preview":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/0819\/d815a6c0da6675d78bba7f4c11cf1794.jpg","business":"浙江迎凯佳·庄哲防盗门"},' +
+                        '{"productid":"c751270c-4d22-c8e4-21cc-478480e55b83","title":"宇洁YJ-15072招财进宝整板304不锈钢对开门","salePrice":"540.00","unit":"元\/平方米","preview":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/0819\/764084bc46e986c9f703f11894af7eb4.jpg","business":"浙江宇洁不锈钢"}]}}');
+
+            }
+
+
+//                for (var i = 0, len = obj.data.banner.length; i < len; ++i) {
+//                    $("#slider-content").append('<div class="mui-slider-item mui-slider-item-duplicate"> <a href=""> <img src="' + obj.data.banner[i].image + '"> </a> </div>');
+//                    if (i == 0) {
+//                        $("#slider-dot").append('<div class="mui-indicator mui-active"></div>');
+//                    } else {
+//                        $("#slider-dot").append('<div class="mui-indicator"></div>');
+//                    }
+//                }
+//                $("#slider-content").removeChild($("#slider-content").getElementsByTagName("div")[0]);
+
+                len = obj.data.classify.length > 9 ? 9 : obj.data.classify.length;
+                for (i = 0; i < len; ++i) {
+                    $(".nav").append('<li> <a href=""> <img src="' + obj.data.classify[i].icon + '"/><p>' + obj.data.classify[i].title + '</p> </a> </li>');
+                }
+                if (obj.data.classify.length > 9) {
+                    $(".nav").append('<li> <a href=""> <img src="images/ic_home_classes.png"/><p>全部分类</p> </a> </li>');
+                }
+
+
+                for(i = 0, len = obj.data.hot.length;i<len;++i){
+                    $(".slide-box").append('<div class="slide-item"><a href="detail.html"><div class="goods-img"><img src="'+obj.data.hot[i].preview+'"/></div><p class="goods-title">'+obj.data.hot[i].title+'</p><h2 class="goods-price"><i>￥</i>'+obj.data.hot[i].salePrice+'</h2></a></div>');
+                }
+
+                for(i = 0, len = obj.data.news.length;i<len;++i){
+                    $("#news").append('<li class="notice_active_ch"> <span class="one-line"><a href="'+obj.data.news[i].detail+'">'+obj.data.news[i].title+'</a></span> </li>');
+                }
+            carouselAdvertising();
+
+        }
+    };
+
+    //取Ajax返回结果
+    //为了简单，这里简单地从文件中读取内容作为返回数据
+//    htmlobj = $.ajax({url: "http://main.tmt58.com/account/getIndexList", async: false});
+    //显示Ajax返回结果
+//    $("#myDiv").html(htmlobj.responseText);
+
+
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        centeredSlides: true,
+        autoplay: 2500,
+        loop:true
+//        autoplayDisableOnInteraction: false
+    });
 </script>
 </body>
 </html>

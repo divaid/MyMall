@@ -1,0 +1,95 @@
+{
+  "error": 0,
+  "errorMsg": "成功！",
+  "data": [
+    {
+      "businessid": "0c9f7374-e6ca-0881-1f6f-a380becdeaef",
+      "business": "浙江晨星安全防盗门",
+      "logo": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/0628\/ca33d617f5635b42dd6484e2c179899a.jpg",
+      "items": [
+        {
+          "uid": "3061d2df-1903-7c67-0bd0-9d713f6d3004",
+          "productid": "97c9c5b0-3489-9f57-a61c-8d827cdb9397",
+          "title": "晨星双喜智能甲级10公分安全防盗门（含单门）",
+          "preview": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/0628\/3ee1199aa8d14e9903f100e55f004c7a.jpg",
+          "option": [],
+          "size": [
+            {
+              "门类": {
+                "name": "2050X1180",
+                "price": 0,
+                "img": "http:\/\/main.tmt58.com\/resource\/upload\/details\/2017\/0628\/1498612217698030.jpg",
+                "unit": "个",
+                "base": 0
+              },
+              "包边": {
+                "name": "外包",
+                "price": 0,
+                "img": "",
+                "unit": "个",
+                "base": 0
+              },
+              "开向": {
+                "name": "外左开",
+                "price": 0,
+                "img": "",
+                "unit": "个",
+                "base": 0
+              },
+              "aboutSize": {
+                "num": "1",
+                "size": "标准",
+                "allPrice": 3052
+              }
+            }
+          ],
+          "price": "3052.00",
+          "unit": "元\/樘",
+          "totalPrice": 3052,
+          "totalNum": 1
+        }
+      ]
+    },
+    {
+      "businessid": "0f6ba802-b838-660f-ffa7-b66a26283ea4",
+      "business": "广东讴德原木门",
+      "logo": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/0619\/0a4a0be905ceac5e7f5088dc3bc9ac4a.jpg",
+      "items": [
+        {
+          "uid": "05198050-7110-5de6-7756-bf6bdbe61435",
+          "productid": "dbdcfaf9-08bc-f5f9-c26b-208b1050784d",
+          "title": "广东讴德OKD-157原木门",
+          "preview": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/0819\/7535a343629c6410fd20bdae8da1b345.jpg",
+          "option": [],
+          "size": [
+            {
+              "木种": {
+                "name": "指接橡木",
+                "price": 0,
+                "img": "",
+                "unit": "个",
+                "base": 0
+              },
+              "美国红橡可选色": {
+                "name": "红橡2色",
+                "price": 0,
+                "img": "http:\/\/main.tmt58.com\/resource\/upload\/details\/2017\/0621\/1498028758197346.jpg",
+                "unit": "个",
+                "base": 0
+              },
+              "aboutSize": {
+                "num": "1",
+                "size": "2000*900*300",
+                "allPrice": 1239
+              }
+            }
+          ],
+          "price": "1239.00",
+          "unit": "元\/樘",
+          "totalPrice": 1239,
+          "totalNum": 1
+        }
+      ]
+    }
+  ]
+}

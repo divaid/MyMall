@@ -1487,7 +1487,12 @@ img {
     float: left;
 }
 
-.pay .weixin em {
+.pay .zhifubao {
+    font-size: .32rem;
+    float: left;
+}
+
+.pay .weixin em, .pay .zhifubao em {
     border: 1px solid red;
     float: left;
     margin-left: .1rem;
@@ -1499,7 +1504,7 @@ img {
     color: red;
 }
 
-.pay .weixin span {
+.pay .weixin span, .pay .zhifubao span {
     float: left;
     margin-top: .02rem;
 }
@@ -1779,4 +1784,138 @@ img {
 
 .coupon .mui-scroll {
     padding: 0 .2rem;
+}
+
+
+
+.swiper-container {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 7px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1
+}
+.swiper-slide {
+    text-align: center;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.swiper-container .swiper-slide img{
+    width:100%;
+    height:100px;
+}
+
+
+
+
+
+.one-line {
+    /*width: 10em; !*保证文字不会被半汉字截断,显示10个文字*!*/
+    overflow: hidden; /*超出长度的文字隐藏*/
+    text-overflow: ellipsis; /*文字隐藏以后添加省略号*/
+    white-space: nowrap; /*强制不换行*/
+}
+
+.huadong {
+    height: 26px;
+    position: relative;
+    font: 12px/1.5 "Hiragino Sans GB", "Microsoft YaHei", simsun;
+    margin: 15px;
+}
+
+.huadong .huabox {
+    margin: 0 auto;
+    line-height: 20px;
+    background-color: green;
+}
+
+.huadong .hdimg {
+    float: left;
+    line-height: 20px;
+}
+
+.huadong .hdimg img {
+    width: 100%;
+    vertical-align: middle;
+}
+
+.huadong h5 {
+    font-size: 10px;
+    float: left;
+    line-height: 26px;
+}
+
+.huadong .gg_more {
+    float: left;
+}
+
+.huadong .gg_more a {
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.huadong .notice_active {
+    float: left;
+    height: 26px;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    /*background-color: orange;*/
+}
+
+.huadong .notice_active li {
+    list-style-type: none;
+    line-height: 20px;
+    overflow: hidden;
+}
+
+/*.huadong .notice_active li.notice_active_ch {}*/
+.huadong .notice_active li.notice_active_ch span {
+    color: #656972;
+    font-size: 20px;
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    float: left;
+    overflow: hidden;
+    margin: 0 0 20px 0;
+}
+
+.huadong .gg_more .news_ck {
+    float: left;
+    margin: 0 1rem 0 1rem;
+    color: #888;
+    width: 5rem;
+    height: 2rem;
+    line-height: 2rem;
+    display: block;
+    border: 1px solid #656972;
+    text-align: center;
+    border-radius: 0.7rem;
+    font-size: 0.8rem;
+    margin-top: 1rem;
+}
+
+.huadong .gg_more .news_more {
+}
+
+.huadong .notice_active li.notice_active_ch em {
+    text-align: right;
+    float: right;
+    color: #888;
+    font-size: 20px;
+    font-style: normal;
 }

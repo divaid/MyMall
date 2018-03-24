@@ -1,0 +1,92 @@
+{
+  "error": 0,
+  "errorMsg": "成功！",
+  "data": {
+    "page": 1,
+    "pageNum": 10,
+    "totalPage": 85,
+    "totalNum": 848,
+    "data": [
+      {
+        "productid": "f9aba13c-25c3-4d3d-9ed2-f12611e99711",
+        "title": "红阳-9088精工拼接镀铜门（不含门头门柱）",
+        "salePrice": "1806.00",
+        "unit": "元\/平方米",
+        "preview": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/0819\/453af2930332e1b121a659cd9e97937f.jpg",
+        "business": "浙江红阳不锈钢铜门"
+      },
+      {
+        "productid": "120cd313-c12d-4af5-86a7-c94b0330cf38",
+        "title": "金品冠-6030彩镜加厚仿红铜卫浴门平开门",
+        "salePrice": "630.00",
+        "unit": "元\/樘",
+        "preview": "http:\/\/main.tmt58.com\/resource\/upload\/2016\/0606\/93fa3c22427c46189c916d8ae2ff8dda.jpg",
+        "business": "浙江金品冠卫浴门"
+      },
+      {
+        "productid": "869a5e2a-9a1e-988f-5eec-dd7170b710e8",
+        "title": "皆喜-T801环保静音生态超强反凸工艺木门",
+        "salePrice": "638.00",
+        "unit": "元\/樘",
+        "preview": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/0603\/68f590119113576d7537171dbd1adc02.jpg",
+        "business": "浙江皆喜木门"
+      },
+      {
+        "productid": "be69e407-0438-b57e-30d3-87d23d4b47a8",
+        "title": "广东讴德OKD-150原木门",
+        "salePrice": "1288.00",
+        "unit": "元\/樘",
+        "preview": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/0725\/aff512d5e15919dfa43bac4d99da2588.jpg",
+        "business": "广东讴德原木门"
+      },
+      {
+        "productid": "64a47714-8f79-49fa-a131-67a46ec02b94",
+        "title": "金阳宇-Y84甲级10公分反凸金盛防盗门",
+        "salePrice": "1539.00",
+        "unit": "元\/樘",
+        "preview": "http:\/\/main.tmt58.com\/resource\/upload\/2016\/0516\/acb4ce03700bed5454e836b35b2d9e9f.jpg",
+        "business": "浙江阳宇门业"
+      },
+      {
+        "productid": "33a62e5b-9751-4ea9-8a1c-156e56fdf402",
+        "title": "金品冠-6027圆弧加厚彩镜卫浴门平开门卫生间门",
+        "salePrice": "630.00",
+        "unit": "元\/樘",
+        "preview": "http:\/\/main.tmt58.com\/resource\/upload\/2016\/0606\/a5944716e6c03c7babe096fe25808367.jpg",
+        "business": "浙江金品冠卫浴门"
+      },
+      {
+        "productid": "cff7c675-4e9d-090f-7658-2e910d3fb79d",
+        "title": "皆喜-T803环保静音生态超强反凸工艺木门",
+        "salePrice": "638.00",
+        "unit": "元\/樘",
+        "preview": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/0603\/332f86b29adf894be952377c36777d07.jpg",
+        "business": "浙江皆喜木门"
+      },
+      {
+        "productid": "011ca0f9-7103-7090-310a-72f524383cfe",
+        "title": "群喜都市雅致柔情玻璃时尚钢木门",
+        "salePrice": "564.00",
+        "unit": "元\/樘",
+        "preview": "http:\/\/main.tmt58.com\/resource\/upload\/2016\/1029\/04a8da13999dc1fb382f4cf338e17ced.jpg",
+        "business": "浙江群喜门业"
+      },
+      {
+        "productid": "7170a9da-95ae-e914-9435-289c1e27ecf5",
+        "title": "德意欧精雕木纹8888一帆风顺拼接工艺别墅非标大门（不含门头门柱）",
+        "salePrice": "918.00",
+        "unit": "元\/平方米",
+        "preview": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/0716\/dda25a6ab7cb41b41187dcd2565f32bf.jpg",
+        "business": "浙江德意欧别墅门"
+      },
+      {
+        "productid": "6ee60ce0-155d-5e0d-d685-c6f0e0c2f72d",
+        "title": "一品创展8厘板实木复合烤漆8104实木复合木门(内含贴板)",
+        "salePrice": "610.00",
+        "unit": "元\/樘",
+        "preview": "http:\/\/main.tmt58.com\/resource\/upload\/2017\/0927\/7d27f5cc739f0930d7a5816e58ee13de.jpg",
+        "business": "重庆一品创展木门"
+      }
+    ]
+  }
+}

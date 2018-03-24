@@ -1,183 +1,355 @@
-
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-	    <title>拼团商城</title>
-	    <meta name="keywords" content="拼团商城" />
-	    <meta name="description" content="拼团商城" />
-	    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-	    <script src="js/mui.min.js"></script> 
-	    <link href="css/mui.min.css" rel="stylesheet" type="text/css"/>
-	    <link rel="stylesheet" href="css/style.css" type="text/css" />
-	    <link rel="stylesheet" href="css/swiper.css" />
-	    <script type="text/javascript">
-	        !function(J){function H(){var d=E.getBoundingClientRect().width;var e=(d/7.5>100*B?100*B:(d/7.5<42?42:d/7.5));E.style.fontSize=e+"px",J.rem=e}var G,F=J.document,E=F.documentElement,D=F.querySelector('meta[name="viewport"]'),B=0,A=0;if(D){var y=D.getAttribute("content").match(/initial\-scale=([\d\.]+)/);y&&(A=parseFloat(y[1]),B=parseInt(1/A))}if(!B&&!A){var u=(J.navigator.appVersion.match(/android/gi),J.navigator.appVersion.match(/iphone/gi)),t=J.devicePixelRatio;B=u?t>=3&&(!B||B>=3)?3:t>=2&&(!B||B>=2)?2:1:1,A=1/B}if(E.setAttribute("data-dpr",B),!D){if(D=F.createElement("meta"),D.setAttribute("name","viewport"),D.setAttribute("content","initial-scale="+A+", maximum-scale="+A+", minimum-scale="+A+", user-scalable=no"),E.firstElementChild){E.firstElementChild.appendChild(D)}else{var s=F.createElement("div");s.appendChild(D),F.write(s.innerHTML)}}J.addEventListener("resize",function(){clearTimeout(G),G=setTimeout(H,300)},!1),J.addEventListener("pageshow",function(b){b.persisted&&(clearTimeout(G),G=setTimeout(H,300))},!1),H()}(window);
-	        if (typeof(M) == 'undefined' || !M){
-	            window.M = {};
-	        }
-	    </script>
-	   
-	</head>
-	<body>
-		<div class="search">
-		    <div class="mui-input-row mui-search">
-				<input type="search" class="mui-input-clear" placeholder="搜索">
-			</div>
-		</div>
-		<!--搜索分类列表-->
-		<div class="mui-content mui-row mui-fullscreen search-menu">
-			<div class="mui-col-xs-3">
-				<div id="segmentedControls" class="mui-segmented-control mui-segmented-control-inverted mui-segmented-control-vertical">
-					
-				</div>
-			</div>
-			<div id="segmentedControlContents" class="mui-col-xs-9" style="border-left: 1px solid #c8c7cc;">
-			</div>
-		</div>
-		<!--底部导航-->
-	<div class="mb-50"></div>
-	<nav class="mui-bar mui-bar-tab ">
-	    <a class="mui-tab-item" href="index.html">
-	        <span class="mui-icon iconfont">&#xe622;</span>
-	        <span class="mui-tab-label">首页</span>
-	    </a>
-		<a class="mui-tab-item mui-active" href="classes.html">
-			<span class="mui-icon iconfont">&#xe625;</span>
-			<span class="mui-tab-label">分类</span>
-		</a>
-	    <a class="mui-tab-item" href="news.html">
-	        <span class="mui-icon iconfont">&#xe640;</span>
-	        <span class="mui-tab-label">新品</span>
-	    </a>
-	    <a class="mui-tab-item" href="cart.html">
-	        <span class="mui-icon iconfont">&#xe600;</span>
-	        <span class="mui-tab-label">购物车</span>
-	    </a>
+<head>
+    <meta charset="utf-8">
+    <title>拼团商城</title>
+    <meta name="keywords" content="拼团商城"/>
+    <meta name="description" content="拼团商城"/>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="css/swiper.css"/>
+    <script type="text/javascript">
+        !function (J) {
+            function H() {
+                var d = E.getBoundingClientRect().width;
+                var e = (d / 7.5 > 100 * B ? 100 * B : (d / 7.5 < 42 ? 42 : d / 7.5));
+                E.style.fontSize = e + "px", J.rem = e
+            }
 
-	     <a class="mui-tab-item" href="member.html">
-	        <span class="mui-icon iconfont">&#xe6d7;</span>
-	        <span class="mui-tab-label">个人中心</span>
-	    </a>
-	</nav>
-    <script src="js/jquery-1.10.1.min.js"></script>
-    <script src="js/swiper.min.js"></script>
-    <script type="text/javascript" src="js/comment.js" ></script>
-	    <script>
-			mui.init({
-				swipeBack: true //启用右滑关闭功能
-			});
-			var controls = document.getElementById("segmentedControls");
-			var contents = document.getElementById("segmentedControlContents");
-	        var menulist=new Array("服饰箱包","食品饮料","母婴玩具","家居生活","美妆护肤","水果生鲜","家纺家具","数码电器");
-			var html = [];
-			var i = 1,
-				j = 1,
-				m = 9, //左侧选项卡数量+1
-				n = 13; //每个选项卡列表数量+1
-			for (; i < m; i++) {
-				html.push('<a class="mui-control-item" data-index="' + (i - 1) + '" href="#content' + i + '"> ' + menulist[i-1] + '' +  '</a>');
-			}
-			controls.innerHTML = html.join('');
-			html = [];
-			for (i = 1; i < m; i++) {
-				html.push('<div id="content' + i + '" class="mui-control-content"><ul class="mui-table-view">'+'<h2><span class="fl">' + menulist[i-1] + '</span><a href="" class="fr">查看更多</a></h2>');
-				for (j = 1; j < n; j++) {
-					var small= new Array("春装上新","女鞋","套装","上衣","裙子","女裤","箱包","内衣","睡衣","男装","男鞋","户外运动");
-				    var imgArr = ['images/test.jpg','images/test.jpg','images/test.jpg','images/test.jpg','images/test.jpg','images/test.jpg','images/test.jpg','images/test.jpg','images/test.jpg','images/test.jpg','images/test.jpg','images/test.jpg'];
-					html.push('<a href="">'+'<li class="mui-table-view-cell">' + '<img src="' + imgArr[j-1] + '"/>' +'<p> '+small[j-1] +'</p> ' + '</li>'+ '</a>');
-				}
-				html.push('</ul></div>');
-			}
-			contents.innerHTML = html.join('');
-			//默认选中第一个
-			controls.querySelector('.mui-control-item').classList.add('mui-active');
-//			contents.querySelector('.mui-control-content').classList.add('mui-active');
-			(	function() {
-				var controlsElem = document.getElementById("segmentedControls");
-				var contentsElem = document.getElementById("segmentedControlContents");
-				var controlListElem = controlsElem.querySelectorAll('.mui-control-item');
-				var contentListElem = contentsElem.querySelectorAll('.mui-control-content');
-				var controlWrapperElem = controlsElem.parentNode;
-				var controlWrapperHeight = controlWrapperElem.offsetHeight;
-				var controlMaxScroll = controlWrapperElem.scrollHeight - controlWrapperHeight;//左侧类别最大可滚动高度
-				var maxScroll = contentsElem.scrollHeight - contentsElem.offsetHeight;//右侧内容最大可滚动高度
-				var controlHeight = controlListElem[0].offsetHeight;//左侧类别每一项的高度
-				var controlTops = []; //存储control的scrollTop值
-				var contentTops = [0]; //存储content的scrollTop值
-				var length = contentListElem.length;
-				for (var i = 0; i < length; i++) {
-					controlTops.push(controlListElem[i].offsetTop + controlHeight);
-				}
-				for (var i = 1; i < length; i++) {
-					var offsetTop = contentListElem[i].offsetTop;
-					if (offsetTop + 100 >= maxScroll) {
-						var height = Math.max(offsetTop + 100 - maxScroll, 100);
-						var totalHeight = 0;
-						var heights = [];
-						for (var j = i; j < length; j++) {
-							var offsetHeight = contentListElem[j].offsetHeight;
-							totalHeight += offsetHeight;
-							heights.push(totalHeight);
-						}
-						for (var m = 0, len = heights.length; m < len; m++) {
-							contentTops.push(parseInt(maxScroll - (height - heights[m] / totalHeight * height)));
-						}
-						break;
-					} else {
-						contentTops.push(parseInt(offsetTop));
-					}
-				}
-				contentsElem.addEventListener('scroll', function() {
-					var scrollTop = contentsElem.scrollTop;
-					for (var i = 0; i < length; i++) {
-						var offsetTop = contentTops[i];
-						var offset = Math.abs(offsetTop - scrollTop);
+            var G, F = J.document, E = F.documentElement, D = F.querySelector('meta[name="viewport"]'), B = 0, A = 0;
+            if (D) {
+                var y = D.getAttribute("content").match(/initial\-scale=([\d\.]+)/);
+                y && (A = parseFloat(y[1]), B = parseInt(1 / A))
+            }
+            if (!B && !A) {
+                var u = (J.navigator.appVersion.match(/android/gi), J.navigator.appVersion.match(/iphone/gi)), t = J.devicePixelRatio;
+                B = u ? t >= 3 && (!B || B >= 3) ? 3 : t >= 2 && (!B || B >= 2) ? 2 : 1 : 1, A = 1 / B
+            }
+            if (E.setAttribute("data-dpr", B), !D) {
+                if (D = F.createElement("meta"), D.setAttribute("name", "viewport"), D.setAttribute("content", "initial-scale=" + A + ", maximum-scale=" + A + ", minimum-scale=" + A + ", user-scalable=no"), E.firstElementChild) {
+                    E.firstElementChild.appendChild(D)
+                } else {
+                    var s = F.createElement("div");
+                    s.appendChild(D), F.write(s.innerHTML)
+                }
+            }
+            J.addEventListener("resize", function () {
+                clearTimeout(G), G = setTimeout(H, 300)
+            }, !1), J.addEventListener("pageshow", function (b) {
+                b.persisted && (clearTimeout(G), G = setTimeout(H, 300))
+            }, !1), H()
+        }(window);
+        if (typeof(M) == 'undefined' || !M) {
+            window.M = {};
+        }
+    </script>
+
+</head>
+<body>
+<div class="search">
+    <div class="mui-input-row mui-search">
+        <input type="search" class="mui-input-clear" placeholder="搜索">
+    </div>
+</div>
+<!--搜索分类列表-->
+<div class="mui-content mui-row mui-fullscreen search-menu">
+    <div class="mui-col-xs-3">
+        <div id="segmentedControls"
+             class="mui-segmented-control mui-segmented-control-inverted mui-segmented-control-vertical">
+
+        </div>
+    </div>
+    <div id="segmentedControlContents" class="mui-col-xs-9" style="border-left: 1px solid #c8c7cc;">
+    </div>
+</div>
+<!--底部导航-->
+<div class="mb-50"></div>
+<nav class="mui-bar mui-bar-tab ">
+    <a class="mui-tab-item" href="index.html">
+        <span class="mui-icon iconfont">&#xe622;</span>
+        <span class="mui-tab-label">首页</span>
+    </a>
+    <a class="mui-tab-item mui-active" href="classes.html">
+        <span class="mui-icon iconfont">&#xe625;</span>
+        <span class="mui-tab-label">分类</span>
+    </a>
+    <!--<a class="mui-tab-item" href="news.html">
+        <span class="mui-icon iconfont">&#xe600;</span>
+        <span class="mui-tab-label">新品</span>
+    </a>-->
+    <a class="mui-tab-item" href="cart.html">
+        <span class="mui-icon iconfont">&#xe640;</span>
+        <span class="mui-tab-label">购物车</span>
+    </a>
+
+    <a class="mui-tab-item" href="member.html">
+        <span class="mui-icon iconfont">&#xe6d7;</span>
+        <span class="mui-tab-label">个人中心</span>
+    </a>
+</nav>
+<script src="js/jquery-1.10.1.min.js"></script>
+<script src="js/swiper.min.js"></script>
+<script type="text/javascript" src="js/comment.js"></script>
+<script>
+
+    var ajaxTest = new XMLHttpRequest();
+    //步骤二:设置请求的url参数,参数一是请求的类型,参数二是请求的url,可以带参数,动态的传递参数starName到服务端
+    //    ajaxTest.open('get', 'http://main.tmt58.com/account/getClassList?city=%E4%BD%99%E6%9D%AD%E5%8C%BA',true);
+    ajaxTest.open('get', 'json/classes.json', true);
+    //步骤三:发送请求
+    ajaxTest.send();
+    //步骤四:注册事件 onreadystatechange 状态改变就会调用
+    ajaxTest.onreadystatechange = function () {
+        if (ajaxTest.readyState == 4) {
+            var obj = "";
+            if (ajaxTest.status == 200) {
+
+                //步骤五 如果能够进到这个判断 说明 数据 完美的回来了,并且请求的页面是存在的
+                console.log("......." + ajaxTest.responseText);//输入相应的内容
+                obj = JSON.parse(ajaxTest.responseText);
+            } else {
+                obj = JSON.parse('{"error":0,"errorMsg":"成功！","data":[{"id":"1","title":"木门","explain":"木门，即木制的门。按照材质、工艺及用途可以分为很多种类。广泛适用于民、商用建筑及住宅。","icon":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/1013\/a5220fc1bd452722b7e20c321fd749a7.png","num":6,"child":[{"id":"11","title":"原木门","explain":"原木门是所有木门种类里最名贵的一种，各个国家进口橡胶木、卡斯拉、樱桃木等等珍贵原木经过卓越的木工与表面处理，让原性","image":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/1129\/1331804653cc75727159cffc20faade6.png","icon":"http:\/\/main.tmt58.com\/resource\/upload\/2016\/0811\/1ebd1d31f5661bd437a2e6056c03ec2c.png","parent":"1","num":68},{"id":"78","title":"防潮木门","explain":"防潮木门是新概念木门，平台防潮木门表面竹木纤维加实木高温高压成型的新型材料，摒弃传统油漆工艺，使得木门具有防潮性、环保性和隔音保温性等优点。","image":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/1129\/5506c645ff249b6bd0cb41b85256b244.png","icon":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/0406\/fc596a15ef7e92e442db31850b638982.png","parent":"1","num":35},{"id":"10","title":"实木复合门","explain":"实木复合分为表面贴纸、贴板和贴实木木皮做为表面材质，采用实木指接（杉木）材料做为门芯，经过油品","image":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/1129\/e6acb4184507c78b7a6beb207b705e7b.png","icon":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/1123\/a03ba74acbd100c5c119d0286d0a85a6.png","parent":"1","num":249},{"id":"44","title":"生态木门","explain":"生态木门又称强化门，门面、门套等采用三聚氰胺饰面板，面板阻燃性强、稳定性强、无油漆工艺环保；根据产品价位不同内填充采用蜂窝纸、杉木方、桥洞板等；木门中性价比高已经慢慢占领了免漆木门和钢木门大部分市场","image":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/1129\/a8b201f2701e261025cd9ad1d5dbbaed.png","icon":"http:\/\/main.tmt58.com\/resource\/upload\/2016\/0811\/64b659fdf54adf6b265b5e4f98575607.png","parent":"1","num":302},{"id":"45","title":"钢木门","explain":"钢木门由钢板、杉木框架和内部杉木蜂窝纸等填充；钢板通过压花和表面转印油漆处理，款式颜色多种多样，生产周期短，在木门类里面价位较低的一种","image":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/1129\/1be859a4340c18c1ce6f53ee478cf7c3.png","icon":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/1123\/02919b85c7f81c03def9518dd6c66a09.png","parent":"1","num":81},{"id":"56","title":"免漆门","explain":"市场上绝大多数免漆门由表面PVC贴中纤密度板经过真空吸塑工艺组成门面门套，生产周期及短，蜂窝纸木方填充组成；价格是木门类里面较低的一种，目前也有其他材质类型的中高端免漆门在市场上出现","image":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/1129\/faff1cfb9b2c7ffb4a5be7b15236e6b0.png","icon":"http:\/\/main.tmt58.com\/resource\/upload\/2016\/0811\/647a060753019277bd2c45dbd049646c.jpg","parent":"1","num":28}]},{"id":"5","title":"防盗门","explain":"防盗门的全称为“防盗安全门”。按防盗安全级别共分4级，分别为甲、乙、丙、丁四级从高到低，依次递减。","icon":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/1013\/7ff85391c929ff1a7dc71f43346b374b.png","num":6,"child":[{"id":"110","title":"指纹锁防盗门","explain":"指纹锁防盗门主要针对安装了指纹锁的防盗门为主，产品有三合一的钥匙指纹密码、四合一多磁卡、五合一多APP密码多种类型指纹锁。","image":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/1129\/19531ae266af5119e5855151d585c015.png","icon":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/1114\/e7a3ebccd052a7b1877e4b892d27c9ed.png","parent":"5","num":30},{"id":"112","title":"自动锁防盗门","explain":"自动锁防盗门锁体使用自动锁体方便老人小孩使用，关闭门扇和打开门扇会自动把侧锁点关闭与打开，不用特意反锁钥匙。","image":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/1129\/4dbeb9d4deda7962afa2cf2a4727319a.png","icon":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/1114\/00e3a3a1bfbff7683f01be9337fb3278.png","parent":"5","num":29},{"id":"109","title":"甲级防盗门","explain":"甲级防盗门国家最新标准《防盗安全门通用技术条件》中门扇前后板厚度为1.0\/1.0mm，门框为2.0mm，度锁闭点数12个，防破坏开启时间≥30min。","image":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/1129\/a5f03c8b0d2b3babae1ce2f7fe76ac26.png","icon":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/1114\/977c0439106c248cac059efefae8d700.png","parent":"5","num":159},{"id":"119","title":"乙级防盗门","explain":"乙级防盗门国家最新标准《防盗安全门通用技术条件》中门扇前后板厚度为1.0\/1.0mm，门框为2.0mm，度锁闭点数10个，防破坏开启时间≥15min。","image":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/1129\/7266bd1f8d0486fa46971e551bcc7b62.png","icon":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/1012\/bf39dcbb7f694e324e19c947b5e12ca1.png","parent":"5","num":2},{"id":"111","title":"丁级防盗门","explain":"丁级防盗门国家最新标准《防盗安全门通用技术条件》中门扇前后板厚度为0.8\/0.6mm，门框为1.5mm，度锁闭点数6个，防破坏开启时间≥6min。","image":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/1129\/38a1f6e6578a7cad0bbf65f620173b4e.png","icon":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/1114\/ce2c9fe4b116bc194589b3e4128fdcbc.png","parent":"5","num":21}]},{"id":"72","title":"装甲门","explain":"装甲门主要特点是门扇中间为坚固的钢结构体(国内称装甲系统),前后表面各覆盖一层漂亮的且易于更换的饰面材料，饰面可做铝、铜、玻璃、复合木、实木等,具有许多独特的优点。","icon":"http:\/\/main.tmt58.com\/resource\/upload\/2016\/0811\/53204fe25e6ae9fac03db49a3d8a9601.png","num":1,"child":[{"id":"73","title":"装甲门","explain":"装甲门主要特点是门扇中间为坚固的钢结构体(国内称装甲系统),前后表面各覆盖一层漂亮的且易于更换的饰面材料，饰面可做铝、铜、玻璃、复合木、实木等,具有许多独特的优点。","image":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/1129\/62bbcfed7479b0ae018178f84eefd5e4.png","icon":"http:\/\/main.tmt58.com\/resource\/upload\/2016\/0811\/53204fe25e6ae9fac03db49a3d8a9601.png","parent":"72","num":10}]},{"id":"102","title":"隔断门","explain":"隔断门，应用于隔断装修 ；对分开的两个空间起到驳合、引导和过渡的作用；是连接空间的纽带。隔断门有很多种，包括壁柜门、推拉门、折叠门、活动轨道门、壁柜移门、隔断移门、折叠移门、平开门、橱柜门等等。","icon":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/0819\/f6c5b99739aa1baad0191407394d297f.png","num":1,"child":[{"id":"103","title":"隔断门","explain":"隔断门，应用于隔断装修 ；对分开的两个空间起到驳合、引导和过渡的作用；是连接空间的纽带。隔断门有很多种，包括壁柜门、推拉门、折叠门、活动轨道门、壁柜移门、隔断移门、折叠移门、平开门、橱柜门等等。","image":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/1129\/e9e16108c036f9b347b49ae5869394b1.png","icon":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/0819\/f6c5b99739aa1baad0191407394d297f.png","parent":"102","num":5}]},{"id":"120","title":"门窗","explain":"门窗安装好后,能让家居生活变得更加的舒适,因此门窗的隔热保温性能就显得尤为重要了，作用是使热传递通道断开，防止冷热传导迅速。","icon":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/1201\/eb8e785d556342fae1f6016c4c85bfe9.jpg","num":1,"child":[{"id":"121","title":"门窗","explain":"门窗安装好后,能让家居生活变得更加的舒适,因此门窗的隔热保温性能就显得尤为重要了，作用是使热传递通道断开，防止冷热传导迅速。","image":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/1201\/123eab644b2eac156e75339fddde64fb.png","icon":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/1201\/6df4be54ced698f8326e6192e87590eb.jpg","parent":"120","num":7}]}]}');
+            }
+
+
+            var controls = document.getElementById("segmentedControls");
+            var contents = document.getElementById("segmentedControlContents");
+            var menulist = new Array("服饰箱包", "食品饮料", "母婴玩具", "家居生活", "美妆护肤", "水果生鲜", "家纺家具", "数码电器");
+            var html = [];
+            var i = 1,
+                    j = 1,
+                    m = obj.data.length, //左侧选项卡数量+1
+                    n = 13; //每个选项卡列表数量+1
+            for (; i <= m; i++) {
+                html.push('<a class="mui-control-item" data-index="' + (i - 1) + '" href="#content' + i + '"> ' + obj.data[i - 1].title + '' + '</a>');
+            }
+            controls.innerHTML = html.join('');
+            html = [];
+//                debugger;
+            for (i = 1; i <= m; i++) {
+                html.push('<div id="content' + i + '" class="mui-control-content"><ul class="mui-table-view">' + '<h2><span class="fl">' + obj.data[i - 1].title + '</span><a href="" class="fr">查看更多</a></h2>');
+                n = obj.data[i - 1].child.length;
+//                    var small = new Array();
+//                    var imgArr = new Array();
+                for (j = 1; j <= n; j++) {
+//                        var small = new Array("春装上新", "女鞋", "套装", "上衣", "裙子", "女裤", "箱包", "内衣", "睡衣", "男装", "男鞋", "户外运动");
+//                        var imgArr = ['images/test.jpg', 'images/test.jpg', 'images/test.jpg', 'images/test.jpg', 'images/test.jpg', 'images/test.jpg', 'images/test.jpg', 'images/test.jpg', 'images/test.jpg', 'images/test.jpg', 'images/test.jpg', 'images/test.jpg'];
+                    html.push('<a href="">' + '<li class="mui-table-view-cell">' + '<img src="' + obj.data[i - 1].child[j - 1].icon + '"/>' + '<p> ' + obj.data[i - 1].child[j - 1].title + '</p> ' + '</li>' + '</a>');
+                }
+                html.push('</ul></div>');
+            }
+            contents.innerHTML = html.join('');
+            //默认选中第一个
+            controls.querySelector('.mui-control-item').classList.add('mui-active');
+
+
+            (function () {
+                var controlsElem = document.getElementById("segmentedControls");
+                var contentsElem = document.getElementById("segmentedControlContents");
+                var controlListElem = controlsElem.querySelectorAll('.mui-control-item');
+                var contentListElem = contentsElem.querySelectorAll('.mui-control-content');
+                var controlWrapperElem = controlsElem.parentNode;
+                var controlWrapperHeight = controlWrapperElem.offsetHeight;
+                var controlMaxScroll = controlWrapperElem.scrollHeight - controlWrapperHeight;//左侧类别最大可滚动高度
+                var maxScroll = contentsElem.scrollHeight - contentsElem.offsetHeight;//右侧内容最大可滚动高度
+                var controlHeight = controlListElem[0].offsetHeight;//左侧类别每一项的高度
+                var controlTops = []; //存储control的scrollTop值
+                var contentTops = [0]; //存储content的scrollTop值
+                var length = contentListElem.length;
+                for (var i = 0; i < length; i++) {
+                    controlTops.push(controlListElem[i].offsetTop + controlHeight);
+                }
+                for (var i = 1; i < length; i++) {
+                    var offsetTop = contentListElem[i].offsetTop;
+                    if (offsetTop + 100 >= maxScroll) {
+                        var height = Math.max(offsetTop + 100 - maxScroll, 100);
+                        var totalHeight = 0;
+                        var heights = [];
+                        for (var j = i; j < length; j++) {
+                            var offsetHeight = contentListElem[j].offsetHeight;
+                            totalHeight += offsetHeight;
+                            heights.push(totalHeight);
+                        }
+                        for (var m = 0, len = heights.length; m < len; m++) {
+                            contentTops.push(parseInt(maxScroll - (height - heights[m] / totalHeight * height)));
+                        }
+                        break;
+                    } else {
+                        contentTops.push(parseInt(offsetTop));
+                    }
+                }
+                contentsElem.addEventListener('scroll', function () {
+                    var scrollTop = contentsElem.scrollTop;
+                    for (var i = 0; i < length; i++) {
+                        var offsetTop = contentTops[i];
+                        var offset = Math.abs(offsetTop - scrollTop);
 //						console.log("i:"+i+",scrollTop:"+scrollTop+",offsetTop:"+offsetTop+",offset:"+offset);
-						if (scrollTop < offsetTop) {
-							if (scrollTop >= maxScroll) {
-								onScroll(length - 1);
-							} else {
-								onScroll(i - 1);
-							}
-							break;
-						} else if (offset < 20) {
-							onScroll(i);
-							break;
-						}else if(scrollTop >= maxScroll){
-							onScroll(length - 1);
-							break;
-						}
-					}
-				});
-				var lastIndex = 0;
-				//监听content滚动
-				var onScroll = function(index) {
-					if (lastIndex !== index) {
-						lastIndex = index;
-						var lastActiveElem = controlsElem.querySelector('.mui-active');
-						lastActiveElem && (lastActiveElem.classList.remove('mui-active'));
-						var currentElem = controlsElem.querySelector('.mui-control-item:nth-child(' + (index + 1) + ')');
-						currentElem.classList.add('mui-active');
-						//简单处理左侧分类滚动，要么滚动到底，要么滚动到顶
-						var controlScrollTop = controlWrapperElem.scrollTop;
-						if (controlScrollTop + controlWrapperHeight < controlTops[index]) {
-							controlWrapperElem.scrollTop = controlMaxScroll;
-						} else if (controlScrollTop > controlTops[index] - controlHeight) {
-							controlWrapperElem.scrollTop = 0;
-						}
-					}
-				};
-				//滚动到指定content
-				var scrollTo = function(index) {
-					contentsElem.scrollTop = contentTops[index];
-				};
-				mui(controlsElem).on('tap', '.mui-control-item', function(e) {
-					scrollTo(this.getAttribute('data-index'));
-					return false;
-				});
-			})();
-			
-		</script>
-	</body>
+                        if (scrollTop < offsetTop) {
+                            if (scrollTop >= maxScroll) {
+                                onScroll(length - 1);
+                            } else {
+                                onScroll(i - 1);
+                            }
+                            break;
+                        } else if (offset < 20) {
+                            onScroll(i);
+                            break;
+                        } else if (scrollTop >= maxScroll) {
+                            onScroll(length - 1);
+                            break;
+                        }
+                    }
+                });
+                var lastIndex = 0;
+                //监听content滚动
+                var onScroll = function (index) {
+                    if (lastIndex !== index) {
+                        lastIndex = index;
+                        var lastActiveElem = controlsElem.querySelector('.mui-active');
+                        lastActiveElem && (lastActiveElem.classList.remove('mui-active'));
+                        var currentElem = controlsElem.querySelector('.mui-control-item:nth-child(' + (index + 1) + ')');
+                        currentElem.classList.add('mui-active');
+                        //简单处理左侧分类滚动，要么滚动到底，要么滚动到顶
+                        var controlScrollTop = controlWrapperElem.scrollTop;
+                        if (controlScrollTop + controlWrapperHeight < controlTops[index]) {
+                            controlWrapperElem.scrollTop = controlMaxScroll;
+                        } else if (controlScrollTop > controlTops[index] - controlHeight) {
+                            controlWrapperElem.scrollTop = 0;
+                        }
+                    }
+                };
+                //滚动到指定content
+                var scrollTo = function (index) {
+                    contentsElem.scrollTop = contentTops[index];
+                };
+                mui(controlsElem).on('tap', '.mui-control-item', function (e) {
+                    scrollTo(this.getAttribute('data-index'));
+                    return false;
+                });
+            })();
+
+
+        }
+    };
+
+
+    mui.init({
+        swipeBack: true //启用右滑关闭功能
+    });
+    //    var controls = document.getElementById("segmentedControls");
+    //    var contents = document.getElementById("segmentedControlContents");
+    //    var menulist = new Array("服饰箱包", "食品饮料", "母婴玩具", "家居生活", "美妆护肤", "水果生鲜", "家纺家具", "数码电器");
+    //    var html = [];
+    //    var i = 1,
+    //            j = 1,
+    //            m = 9, //左侧选项卡数量+1
+    //            n = 13; //每个选项卡列表数量+1
+    //    for (; i < m; i++) {
+    //        html.push('<a class="mui-control-item" data-index="' + (i - 1) + '" href="#content' + i + '"> ' + menulist[i - 1] + '' + '</a>');
+    //    }
+    //    controls.innerHTML = html.join('');
+    //    html = [];
+    //    for (i = 1; i < m; i++) {
+    //        html.push('<div id="content' + i + '" class="mui-control-content"><ul class="mui-table-view">' + '<h2><span class="fl">' + menulist[i - 1] + '</span><a href="" class="fr">查看更多</a></h2>');
+    //        for (j = 1; j < n; j++) {
+    //            var small = new Array("春装上新", "女鞋", "套装", "上衣", "裙子", "女裤", "箱包", "内衣", "睡衣", "男装", "男鞋", "户外运动");
+    //            var imgArr = ['images/test.jpg', 'images/test.jpg', 'images/test.jpg', 'images/test.jpg', 'images/test.jpg', 'images/test.jpg', 'images/test.jpg', 'images/test.jpg', 'images/test.jpg', 'images/test.jpg', 'images/test.jpg', 'images/test.jpg'];
+    //            html.push('<a href="">' + '<li class="mui-table-view-cell">' + '<img src="' + imgArr[j - 1] + '"/>' + '<p> ' + small[j - 1] + '</p> ' + '</li>' + '</a>');
+    //        }
+    //        html.push('</ul></div>');
+    //    }
+    //    contents.innerHTML = html.join('');
+    //    //默认选中第一个
+    //    controls.querySelector('.mui-control-item').classList.add('mui-active');
+    //			contents.querySelector('.mui-control-content').classList.add('mui-active');
+    //    (function () {
+    //        var controlsElem = document.getElementById("segmentedControls");
+    //        var contentsElem = document.getElementById("segmentedControlContents");
+    //        var controlListElem = controlsElem.querySelectorAll('.mui-control-item');
+    //        var contentListElem = contentsElem.querySelectorAll('.mui-control-content');
+    //        var controlWrapperElem = controlsElem.parentNode;
+    //        var controlWrapperHeight = controlWrapperElem.offsetHeight;
+    //        var controlMaxScroll = controlWrapperElem.scrollHeight - controlWrapperHeight;//左侧类别最大可滚动高度
+    //        var maxScroll = contentsElem.scrollHeight - contentsElem.offsetHeight;//右侧内容最大可滚动高度
+    //        var controlHeight = controlListElem[0].offsetHeight;//左侧类别每一项的高度
+    //        var controlTops = []; //存储control的scrollTop值
+    //        var contentTops = [0]; //存储content的scrollTop值
+    //        var length = contentListElem.length;
+    //        for (var i = 0; i < length; i++) {
+    //            controlTops.push(controlListElem[i].offsetTop + controlHeight);
+    //        }
+    //        for (var i = 1; i < length; i++) {
+    //            var offsetTop = contentListElem[i].offsetTop;
+    //            if (offsetTop + 100 >= maxScroll) {
+    //                var height = Math.max(offsetTop + 100 - maxScroll, 100);
+    //                var totalHeight = 0;
+    //                var heights = [];
+    //                for (var j = i; j < length; j++) {
+    //                    var offsetHeight = contentListElem[j].offsetHeight;
+    //                    totalHeight += offsetHeight;
+    //                    heights.push(totalHeight);
+    //                }
+    //                for (var m = 0, len = heights.length; m < len; m++) {
+    //                    contentTops.push(parseInt(maxScroll - (height - heights[m] / totalHeight * height)));
+    //                }
+    //                break;
+    //            } else {
+    //                contentTops.push(parseInt(offsetTop));
+    //            }
+    //        }
+    //        contentsElem.addEventListener('scroll', function () {
+    //            var scrollTop = contentsElem.scrollTop;
+    //            for (var i = 0; i < length; i++) {
+    //                var offsetTop = contentTops[i];
+    //                var offset = Math.abs(offsetTop - scrollTop);
+    ////						console.log("i:"+i+",scrollTop:"+scrollTop+",offsetTop:"+offsetTop+",offset:"+offset);
+    //                if (scrollTop < offsetTop) {
+    //                    if (scrollTop >= maxScroll) {
+    //                        onScroll(length - 1);
+    //                    } else {
+    //                        onScroll(i - 1);
+    //                    }
+    //                    break;
+    //                } else if (offset < 20) {
+    //                    onScroll(i);
+    //                    break;
+    //                } else if (scrollTop >= maxScroll) {
+    //                    onScroll(length - 1);
+    //                    break;
+    //                }
+    //            }
+    //        });
+    //        var lastIndex = 0;
+    //        //监听content滚动
+    //        var onScroll = function (index) {
+    //            if (lastIndex !== index) {
+    //                lastIndex = index;
+    //                var lastActiveElem = controlsElem.querySelector('.mui-active');
+    //                lastActiveElem && (lastActiveElem.classList.remove('mui-active'));
+    //                var currentElem = controlsElem.querySelector('.mui-control-item:nth-child(' + (index + 1) + ')');
+    //                currentElem.classList.add('mui-active');
+    //                //简单处理左侧分类滚动，要么滚动到底，要么滚动到顶
+    //                var controlScrollTop = controlWrapperElem.scrollTop;
+    //                if (controlScrollTop + controlWrapperHeight < controlTops[index]) {
+    //                    controlWrapperElem.scrollTop = controlMaxScroll;
+    //                } else if (controlScrollTop > controlTops[index] - controlHeight) {
+    //                    controlWrapperElem.scrollTop = 0;
+    //                }
+    //            }
+    //        };
+    //        //滚动到指定content
+    //        var scrollTo = function (index) {
+    //            contentsElem.scrollTop = contentTops[index];
+    //        };
+    //        mui(controlsElem).on('tap', '.mui-control-item', function (e) {
+    //            scrollTo(this.getAttribute('data-index'));
+    //            return false;
+    //        });
+    //    })();
+
+</script>
+</body>
 </html>
