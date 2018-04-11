@@ -28,13 +28,20 @@
     position: relative;
 }
 
+.shop-name .logo{
+    float: left;
+    width:26px;
+    height:26px;
+    margin-top: 5px;
+    margin-left: 28px;
+}
+
 .shop-name h4 {
     float: left;
     font-size: 14px;
-    background: url(../images/icon/icon-kin.png) no-repeat left center;
     background-size: 20px 20px;
-    padding-left: 25px;
-    margin-left: 28px;
+    padding-top: 10px;
+    margin-left: 8px;
 }
 
 .shop-name .coupons {
