@@ -1189,7 +1189,7 @@ img {
 }
 
 .g-detail-user.left-user {
-    background: url(../images/user.png);
+    /*background: url(images/user.png);*/
     background-size: 100% 100%;
     border: 1px dashed #bcbcbc;
     color: #333;
@@ -1250,7 +1250,7 @@ img {
 .g-detail-user-wrapper .fnTimeCountDown .hour, .g-detail-user-wrapper .fnTimeCountDown .mini {
     background-image: -moz-linear-gradient(top, #092a49, #010718); /* Firefox */
     background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #092a49), color-stop(1, #010718));
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#092a49', endColorstr='#010718',);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#092a49', endColorstr='#010718');
     color: #fff;
     padding: .06rem .05rem;
     border-radius: .05rem;
@@ -1260,7 +1260,7 @@ img {
 .g-detail-user-wrapper .fnTimeCountDown .sec {
     background-image: -moz-linear-gradient(top, #fb4444, #e72929);
     background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #fb4444), color-stop(1, #e72929));
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fb4444', endColorstr='#e72929',);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fb4444', endColorstr='#e72929');
     color: #fff;
     padding: .06rem .05rem;
     border-radius: .05rem;
@@ -1790,7 +1790,8 @@ img {
 
 .swiper-container {
     width: 100%;
-    height: 100px;
+    min-height: 100px;
+    max-height: 300px;
     margin-bottom: 7px;
     position: relative;
     overflow: hidden;
@@ -1813,12 +1814,6 @@ img {
     -webkit-align-items: center;
     align-items: center;
 }
-.swiper-container .swiper-slide img{
-    width:100%;
-    height:100px;
-}
-
-
 
 
 
@@ -1827,6 +1822,7 @@ img {
     overflow: hidden; /*超出长度的文字隐藏*/
     text-overflow: ellipsis; /*文字隐藏以后添加省略号*/
     white-space: nowrap; /*强制不换行*/
+    font-size: 10px;
 }
 
 .huadong {

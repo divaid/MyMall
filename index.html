@@ -17,16 +17,90 @@
     <link rel="stylesheet" href="css/swiper.css"/>
 
     <style type="text/css">
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+        .banner {
+            overflow: hidden;
+            width: 100%;
+            margin-top: 50px;
+        }
+        .banner .img-wrap {
+            position: relative;
+            height: 100%
+        }
+        .banner img {
+            display: block;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%
+        }
+
+
+        .mui-slider-indicator
+        {
+            position: relative;
+            bottom: 18px;
+
+            width: 100%;
+
+            text-align: center;
+
+            background: none;
+        }
+        .mui-slider-indicator .mui-indicator
+        {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            margin: 1px 6px;
+            cursor: pointer;
+            border-radius: 50%;
+            background-color: #aaa;
+            -webkit-box-shadow: 0 0 1px 1px rgba(130, 130, 130, .7);
+            box-shadow: 0 0 1px 1px rgba(130, 130, 130, .7);
+        }
+        .mui-slider-indicator .mui-active
+        {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            margin: 1px 6px;
+            cursor: pointer;
+            border-radius: 50%;
+            background-color: #fff;
+            -webkit-box-shadow: 0 0 1px 1px rgba(130, 130, 130, .7);
+            box-shadow: 0 0 1px 1px rgba(130, 130, 130, .7);
+        }
+
+
+
+
+
+
+
+
+
+
         .header {
-            background-color:#00000000;
+            background-color:#dd2727;
             border-bottom:1px solid #00000000;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 2;
+            height: 50px;
         }
         .header h1 {
             color:#424345;
             font-size:21px;
         }
         .home-address{
-            line-height: 40px;
+            line-height: 50px;
+            padding-left: 10px;
         }
         .notice-box {
             position:absolute;
@@ -104,6 +178,7 @@
             width: 200px;
             height: 200px;
             margin-right: 30px;
+
         }
     </style>
 
@@ -155,6 +230,8 @@
                 $(this).css({marginTop : "1px"}).find("li:first").appendTo(this);
             })
         }
+
+        //公告
         $(function(){
             var num = $('.notice_active').find('li').length;
             if(num > 1){
@@ -169,23 +246,10 @@
                 location.href = $(".notice_active .notice_active_ch").children(":input").val();
             })
         });
-        function carouselAdvertising () {
-            var num = $('.notice_active').find('li').length;
-            if(num > 1){
-                var time=setInterval('timer(".notice_active")',3500);
-                $('.gg_more a').mousemove(function(){
-                    clearInterval(time);
-                }).mouseout(function(){
-                    time = setInterval('timer(".notice_active")',3500);
-                });
-            }
-            $(".news_ck").click(function(){
-                location.href = $(".notice_active .notice_active_ch").children(":input").val();
-            })
-        }
     </script>
 </head>
 <body>
+
 <!--头部导航-->
 <!--<div id="header">
   <div class="swiper-wrapper">
@@ -202,7 +266,7 @@
 </div>
 <div class="mb-50"></div>-->
 
-<header class="header mui-bar mui-bar-nav">
+<header class="header ">
     <div class="home-address">
         地址
     </div>
@@ -213,21 +277,26 @@
     </div>
 </header>
 
-<!-- Swiper -->
-<div class="swiper-container">
-    <div class="swiper-wrapper">
-        <div class="swiper-slide"><img src="images/banner.png" alt=""></div>
-        <div class="swiper-slide"><img src="images/banner.png" alt=""></div>
-        <div class="swiper-slide"><img src="images/banner.png" alt=""></div>
+
+<div class="banner" id="banner">
+    <div class="img-wrap" id="imgWrap">
+        <!--<img src="images/water_top.png" data-index="-1">
+        <img src="images/water_top.png" data-index="0">
+        <img src="images/banner.jpg" data-index="1">
+        <img src="images/water_top.png" data-index="2">
+        <img src="images/water_top.png" data-index="3">-->
     </div>
-    <!-- Add Pagination -->
-    <div class="swiper-pagination"></div>
+    <div id="slider-dot" class="mui-slider-indicator">
+        <!--<div class="mui-indicator mui-active"></div>
+        <div class="mui-indicator"></div>
+        <div class="mui-indicator"></div>-->
+    </div>
 </div>
 
 
 
 <!--图片轮播-->
-<div id="slider" class="mui-slider">
+<!--<div id="slider" class="mui-slider">
     <div id="slider-content" class="mui-slider-group mui-slider-loop">
         <div class="mui-slider-item">
             <a href=""> <img src="images/banner.jpg"> </a>
@@ -253,7 +322,7 @@
                 <div class="mui-indicator"></div>
     </div>
 </div>
-
+-->
 
 <!--入口导航-->
 <ul class="nav">
@@ -570,15 +639,148 @@
 </nav>
 
 <script type="text/javascript">
+    var lastPX = 0; // 上一次触摸的位置x坐标, 需要计算出手指每次移动的一点点距离
+    var movex = 0; // 记录手指move的x方向值
+    var imgWrap = document.getElementById('imgWrap');
+    var startX = 0; // 开始触摸时手指所在x坐标
+    var endX = 0; // 触摸结束时手指所在的x坐标位置
+    var t1 = 0; // 记录开始触摸的时刻
+    var t2 = 0; // 记录结束触摸的时刻
+    var width = window.innerWidth; // 当前窗口宽度
+    var currentIndex = 0;
+    var imgSize = imgWrap.children.length - 2; // 图片个数
+    var nodeList = document.querySelectorAll('#imgWrap img'); // 所有轮播图节点数组 NodeList
+    var navDot = document.getElementById("slider-dot").children;
 
-
-    $(window).bind("scroll",function() {
-        if ($(document).scrollTop() > 100) {
-            $(".header").css({'background-color':'#dd2727','transition':'0.4s'});
-        }else{
-            $(".header").css({'background-color':'transparent','transition':'0.4s'});
-        }
+    // 给图片设置合适的left值, 注意 querySelectorAll返回 NodeList, 具有 forEach方法
+    nodeList.forEach(function (node, index) {
+        node.style.left = (index - 1) * width + 'px';
     });
+
+    /**
+     * 移动图片到当前的 tIndex索引所在位置
+     * @param {number} tIndex 要显示的图片的索引
+     * */
+    function toIndex(tIndex) {
+        var dis = -(tIndex * width);
+        // 动画移动
+        imgWrap.style.transform = 'translate3d(' + dis + 'px, 0, 0)';
+        imgWrap.style.transition = 'transform .2s ease-out';
+        movex = dis;
+        // 索引到最后一张图片, 迅速切换索引到同一张图的初始位置
+        for(var i = 0,len = navDot.length;i<len;++i){
+            navDot[i].style.backgroundColor = "#aaaaaa"
+        }
+        setTimeout(function () {
+            if (tIndex === imgSize) {
+                imgWrap.style.transform = 'translate3d(0, 0, 0)';
+                imgWrap.style.transition = 'none';
+                movex = 0;
+
+                currentIndex  = 0;
+            } else if (tIndex === -1) {
+                imgWrap.style.transform = 'translate3d(' + width * (1 - imgSize) + 'px, 0, 0)';
+                imgWrap.style.transition = 'none';
+                movex = -width * (imgSize - 1);
+
+                currentIndex = imgSize;
+            }
+            navDot[currentIndex].style.backgroundColor="#fff";
+
+        }, 200);
+
+    }
+
+    /**
+     * 处理各种触摸事件 ,包括 touchstart, touchend, touchmove, touchcancel
+     * @param {Event} evt 回调函数中系统传回的 js 事件对象
+     * */
+    function touch(evt) {
+        var touch = evt.targetTouches[0];
+        var tar = evt.target;
+        var index = parseInt(tar.getAttribute('data-index'));
+        if (evt.type === "touchstart"){
+            clearInterval(autoPlayTask);
+        } else if (evt.type === 'touchmove') {
+            var di = parseInt(touch.pageX - lastPX);
+            endX = touch.pageX;
+            movex += di;
+            imgWrap.style.webkitTransform = 'translate3d(' + movex + 'px, 0, 0)';
+            imgWrap.style.transition = 'none'; // 移动时避免动画延迟
+            lastPX = touch.pageX;
+        } else if (evt.type === 'touchend') {
+            var minus = endX - startX;
+            t2 = new Date().getTime() - t1;
+            if (Math.abs(minus) > 0) { // 有拖动操作
+                if (Math.abs(minus) < width * 0.4 && t2 > 500) { // 拖动距离不够,返回!
+                    currentIndex = index;
+                    toIndex(index);
+                } else { // 超过一半,看方向
+                    console.log(minus);
+                    if (Math.abs(minus) < 120) {
+                        console.log('距离很短' + minus);
+                        toIndex(index);
+                        currentIndex = index;
+                        return;
+                    }
+                    if (minus < 0) { // endX < startX,向左滑动,是下一张
+                        currentIndex = index +1;
+                        toIndex(index + 1)
+                    } else { // endX > startX ,向右滑动, 是上一张
+                        currentIndex = index -1;
+                        toIndex(index - 1)
+                    }
+                }
+
+
+                autoPlayTask = setInterval(function () {
+                    currentIndex += 1;
+                    toIndex(currentIndex);
+                }, 3000);
+            } else { //没有拖动操作
+
+            }
+        }
+        if (evt.type === 'touchstart') {
+            lastPX = touch.pageX;
+            startX = lastPX;
+            endX = startX;
+            t1 = new Date().getTime();
+        }
+        return false;
+    }
+
+    imgWrap.addEventListener('touchstart', touch, false);
+    imgWrap.addEventListener('touchmove', touch, false);
+    imgWrap.addEventListener('touchend', touch, false);
+    imgWrap.addEventListener('touchcancel', touch, false);
+
+
+    var autoPlayTask ;
+
+    function resizeHeight(id, size) {
+        var ele = document.getElementById(id);
+        var width = ele.offsetWidth;
+        ele.style.height = size * width + "px";
+    }//设置高宽比
+    resizeHeight("banner", 0.4375);
+
+
+
+
+
+
+
+
+
+
+    // $(window).bind("scroll",function() {
+    //     if ($(document).scrollTop() > 100) {
+    //         $(".header").css({'background-color':'#dd2727','transition':'0.4s'});
+    //     }else{
+    //         $(".header").css({'background-color':'transparent','transition':'0.4s'});
+    //     }
+    // });
 
 
 
@@ -599,82 +801,70 @@
 //                console.log("......." + ajaxTest.responseText);//输入相应的内容
                 obj = JSON.parse(ajaxTest.responseText);
             } else {
-                //本地测试
 
-//                debugger;
-
-                obj = JSON.parse('{"error":0,"errorMsg":"成功！","data":{"banner":' +
-                        '[{"id":"39","type":"1","title":"一品","image":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/1116\/7fce62e7025dfc1ae7d62c480dc7b2c5.jpg","url_title":"一品创展木门","url":"8b765cdc-4626-6f0c-2359-31f15718287d","rank":"0","status":"1","time":"1510715093","new_type":"0"},' +
-                        '{"id":"27","type":"1","title":"宇洁不锈钢","image":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/0512\/9c06780f41789321e07b11b2023257b4.jpg","url_title":"宇洁不锈钢","url":"c0d3ff02-c880-972b-757f-4faee1fd995e","rank":"9","status":"1","time":"1494569193","new_type":"0"},' +
-                        '{"id":"31","type":"1","title":"大掌门别墅门","image":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/0725\/e3d709833542a74703d750f7c882ca96.jpg","url_title":"大掌门非标门","url":"84d024d4-c8a1-ce48-4ab1-d96fcea8d044","rank":"11","status":"1","time":"1500970217","new_type":"0"},' +
-                        '{"id":"28","type":"1","title":"晨星","image":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/0629\/291507e0da12533d3b8c29568497c1b4.jpg","url_title":"晨星安全防盗门","url":"0c9f7374-e6ca-0881-1f6f-a380becdeaef","rank":"12","status":"1","time":"1498723253","new_type":"0"},' +
-                        '{"id":"30","type":"1","title":"德意欧","image":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/0724\/ef1f111ad2a71ce68cc9a6db6dd41f66.jpg","url_title":"德意欧别墅门","url":"fbc5689f-8cca-e6f6-1404-e57ed7bf1c3d","rank":"13","status":"1","time":"1500883216","new_type":"0"}],'
-                        +
-                        '"classify":[{"id":"1","title":"木门","icon":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/1013\/a5220fc1bd452722b7e20c321fd749a7.png","explain":"木门，即木制的门。按照材质、工艺及用途可以分为很多种类。广泛适用于民、商用建筑及住宅。"},' +
-                        '{"id":"5","title":"防盗门","icon":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/1013\/7ff85391c929ff1a7dc71f43346b374b.png","explain":"防盗门的全称为“防盗安全门”。按防盗安全级别共分4级，分别为甲、乙、丙、丁四级从高到低，依次递减。"},' +
-                        '{"id":"8","title":"非标门","icon":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/1013\/1f541255df5163dfc0294cb25e85e986.png","explain":"非标准尺寸的门就是非标门！门是非标门还是标准门与材料无关，只与尺寸有关。没有固定的尺寸和样式。"},' +
-                        '{"id":"7","title":"卫浴门移门","icon":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/1013\/0ac5027fed5b6f535ab5cb622a8d0c11.png","explain":"卫浴门是卫生间门与浴室门的总称，一般采用塑钢、铝合金、钛镁合金、玻璃制作。移门指门扇连接滑轮并在固定的轨道上可移动的门，即推拉门。"},' +
-                        '{"id":"2","title":"铜门","icon":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/1013\/2e0c5020760fe085c556e8f15e020bdf.png","explain":"铜门，是一种超豪华的玄关。铜门按照装饰用途可分为豪宅别墅铜门、别墅子母铜门、豪华玻璃铜门、居室铜门、自动旋转铜门、电梯铜门等。同时还经营制作铜花饰、铜饰标牌、铜楼梯扶手、铜窗、铜浮雕壁画等铜装饰工程。"},' +
-                        '{"id":"6","title":"不锈钢门","icon":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/1013\/8e6f47969d85f9fa322b58e9c27f4185.png","explain":"不锈钢彩板门就是用不锈钢彩色钢板材料剪压加工而成的门，和普通的门外观一样，主要材料是经真空镀色处理不锈钢板材，里面的填充物一般是木板，胶水，泡沫或者是蜂窝纸。"},' +
-                        '{"id":"4","title":"防火门","icon":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/1013\/a1ee44aedb605c79ef17856939135f1b.png","explain":"防火门指在一定时间内能满足耐火稳定性、完整性和隔热性要求的门。设在防火分区间、疏散楼梯间、垂直竖井等具有一定耐火性的防火分隔物。它除具有普通门的作用外，更具有阻止火势蔓延和烟气扩散的作用。"},' +
-                        '{"id":"9","title":"门配件","icon":"http:\/\/main.tmt58.com\/resource\/upload\/2016\/0811\/ab0128a37ba33577c54ede733a7b5de8.png","explain":"门窗配件包括门控五金；高性能户门用五金；塑料、铝合金、木内门用五金件；窗用五金件；特殊类型窗用五金件；建筑门窗用密封胶条；建筑门窗用密封毛条；通风器；建筑门窗用密封胶等9类。"},' +
-                        '{"id":"72","title":"装甲门","icon":"http:\/\/main.tmt58.com\/resource\/upload\/2016\/0811\/53204fe25e6ae9fac03db49a3d8a9601.png","explain":"装甲门主要特点是门扇中间为坚固的钢结构体(国内称装甲系统),前后表面各覆盖一层漂亮的且易于更换的饰面材料，饰面可做铝、铜、玻璃、复合木、实木等,具有许多独特的优点。"},' +
-                        '{"id":"102","title":"隔断门","icon":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/0819\/f6c5b99739aa1baad0191407394d297f.png","explain":"隔断门，应用于隔断装修 ；对分开的两个空间起到驳合、引导和过渡的作用；是连接空间的纽带。隔断门有很多种，包括壁柜门、推拉门、折叠门、活动轨道门、壁柜移门、隔断移门、折叠移门、平开门、橱柜门等等。"},' +
-                        '{"id":"120","title":"门窗","icon":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/1201\/eb8e785d556342fae1f6016c4c85bfe9.jpg","explain":"门窗安装好后,能让家居生活变得更加的舒适,因此门窗的隔热保温性能就显得尤为重要了，作用是使热传递通道断开，防止冷热传导迅速。"}]'+
-                ',"hot":[{"productid":"dbdcfaf9-08bc-f5f9-c26b-208b1050784d","title":"广东讴德OKD-157原木门","salePrice":"1239.00","unit":"元\/樘","preview":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/0819\/7535a343629c6410fd20bdae8da1b345.jpg","business":"广东讴德原木门"},' +
-                        '{"productid":"30484aa9-ca3a-a6c5-9b91-86ce0dc00cb6","title":"特价九重JC-1632双喜临门甲级安全门防盗门（有库存）","salePrice":"918.00","unit":"元\/樘","preview":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/0819\/fe3a8054352a0e7f1e59748a89fee4ec.jpg","business":"浙江九重门业"},' +
-                        '{"productid":"dcf184c5-8146-d1f2-36ee-c09df2276bb9","title":"特价《迎凯佳·庄哲》凯佳名光10CM丁级自动锁防盗门（现货）","salePrice":"1451.00","unit":"元\/樘","preview":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/0819\/d815a6c0da6675d78bba7f4c11cf1794.jpg","business":"浙江迎凯佳·庄哲防盗门"},' +
-                        '{"productid":"c751270c-4d22-c8e4-21cc-478480e55b83","title":"宇洁YJ-15072招财进宝整板304不锈钢对开门","salePrice":"540.00","unit":"元\/平方米","preview":"http:\/\/main.tmt58.com\/resource\/upload\/2017\/0819\/764084bc46e986c9f703f11894af7eb4.jpg","business":"浙江宇洁不锈钢"}]}}');
 
             }
 
 
-//                for (var i = 0, len = obj.data.banner.length; i < len; ++i) {
-//                    $("#slider-content").append('<div class="mui-slider-item mui-slider-item-duplicate"> <a href=""> <img src="' + obj.data.banner[i].image + '"> </a> </div>');
-//                    if (i == 0) {
-//                        $("#slider-dot").append('<div class="mui-indicator mui-active"></div>');
-//                    } else {
-//                        $("#slider-dot").append('<div class="mui-indicator"></div>');
-//                    }
-//                }
-//                $("#slider-content").removeChild($("#slider-content").getElementsByTagName("div")[0]);
-
-                len = obj.data.classify.length > 9 ? 9 : obj.data.classify.length;
-                for (i = 0; i < len; ++i) {
-                    $(".nav").append('<li> <a href=""> <img src="' + obj.data.classify[i].icon + '"/><p>' + obj.data.classify[i].title + '</p> </a> </li>');
-                }
-                if (obj.data.classify.length > 9) {
-                    $(".nav").append('<li> <a href=""> <img src="images/ic_home_classes.png"/><p>全部分类</p> </a> </li>');
-                }
+            len = obj.data.classify.length > 9 ? 9 : obj.data.classify.length;
+            for (var i = 0; i < len; ++i) {
+                $(".nav").append('<li> <a href=""> <img src="' + obj.data.classify[i].icon + '"/><p>' + obj.data.classify[i].title + '</p> </a> </li>');
+            }
+            if (obj.data.classify.length > 9) {
+                $(".nav").append('<li> <a href=""> <img src="images/ic_home_classes.png"/><p>全部分类</p> </a> </li>');
+            }
 
 
-                for(i = 0, len = obj.data.hot.length;i<len;++i){
-                    $(".slide-box").append('<div class="slide-item"><a href="detail.html"><div class="goods-img"><img src="'+obj.data.hot[i].preview+'"/></div><p class="goods-title">'+obj.data.hot[i].title+'</p><h2 class="goods-price"><i>￥</i>'+obj.data.hot[i].salePrice+'</h2></a></div>');
-                }
+            for (i = 0, len = obj.data.hot.length; i < len; ++i) {
+                $(".slide-box").append('<div class="slide-item"><a href="detail.html"><div class="goods-img"><img src="' + obj.data.hot[i].preview + '"/></div><p class="goods-title">' + obj.data.hot[i].title + '</p><h2 class="goods-price"><i>￥</i>' + obj.data.hot[i].salePrice + '</h2></a></div>');
+            }
 
-                for(i = 0, len = obj.data.news.length;i<len;++i){
-                    $("#news").append('<li class="notice_active_ch"> <span class="one-line"><a href="'+obj.data.news[i].detail+'">'+obj.data.news[i].title+'</a></span> </li>');
+            for (i = 0, len = obj.data.news.length; i < len; ++i) {
+                $("#news").append('<li class="notice_active_ch"> <span class="one-line"><a href="' + obj.data.news[i].detail + '">' + obj.data.news[i].title + '</a></span> </li>');
+            }
+
+
+
+            var banner = obj.data.banner;
+            imgSize = banner.length;
+            $("#imgWrap").append('<img src="'+banner[banner.length-1].image+'" data-index="-1"/>');
+            for (i = 0, len = banner.length; i < len; ++i) {
+
+                $("#imgWrap").append('<img src="'+banner[i].image+'" data-index="'+i+'"/>');
+                if (i == 0){
+                    $("#slider-dot").append('<div class="mui-indicator mui-active"></div>');
+                } else {
+                    $("#slider-dot").append('<div class="mui-indicator"></div>');
                 }
+            }
+            $("#imgWrap").append('<img src="'+banner[0].image+'" data-index="'+(banner.length)+'"/>');
+            //<div class="swiper-slide"><img src="" alt=""></div>
             carouselAdvertising();
 
-        }
-    };
+            autoPlayTask = setInterval(function () {
+                currentIndex += 1;
+                toIndex(currentIndex);
+            }, 3000);
 
-    //取Ajax返回结果
-    //为了简单，这里简单地从文件中读取内容作为返回数据
+        };
+
+        //取Ajax返回结果
+        //为了简单，这里简单地从文件中读取内容作为返回数据
 //    htmlobj = $.ajax({url: "http://main.tmt58.com/account/getIndexList", async: false});
-    //显示Ajax返回结果
+        //显示Ajax返回结果
 //    $("#myDiv").html(htmlobj.responseText);
 
 
-    var swiper = new Swiper('.swiper-container', {
-        pagination: '.swiper-pagination',
-        paginationClickable: true,
-        centeredSlides: true,
-        autoplay: 2500,
-        loop:true
-//        autoplayDisableOnInteraction: false
-    });
+    }
+
+
+
+
+
+
+
+
+
 </script>
 </body>
 </html>
